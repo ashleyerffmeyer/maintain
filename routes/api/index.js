@@ -5,17 +5,17 @@ const router = require("express").Router();
 const journalController = require("../../controllers/Journal");
 
 // journalController routes
-// Retrieve books saved from Google Books search results
-router.get("/get_journal", googleBooksController.getBooks);
+// Retrieve books saved from Journal
+router.get("/get_journal", journalController.getJournal);
 
-// Save books from Google Books search results
-router.post("/save_journal", googleBooksController.saveBook);
+// Save Journal entry
+router.post("/save_journal", journalController.saveJournal);
 
-// Delete book from saved list of Google Books search results
-router.post("/delete_book/:id", googleBooksController.deleteBook);
+// Delete Journal entry from saved list of Journal entries
+router.post("/delete_Journal/:id", journalController.deleteJournal);
 
 // Search for books by title using the Google Books API
-router.get("/book_search/:title", googleBooksController.bookSearch);
+//router.get("/book_search/:title", googleBooksController.bookSearch);
 
 // Exporting router
 module.exports = router;
