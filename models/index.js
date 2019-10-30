@@ -1,3 +1,3 @@
 module.exports = {
-  Journal: require("./journal")
+  Journal: require("./Journal")
 };
