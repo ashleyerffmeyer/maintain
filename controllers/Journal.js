@@ -41,7 +41,7 @@ exports.saveJournal = (req, res) => {
     db.Journal.create({ ...req.body, userId: id })
     .then(
         (response) => {
-            res.json({
+            res.status(202).json({
                 status: 'Accepted',
                 data: response,
                 detail: null,
