@@ -10,7 +10,7 @@ router.post("/user", auth.createUser);
 
 // Login
 // POST /api/auth/user/<user_id>
-router.post("/user/:id", auth.getUser);
+router.post("/user/login", auth.getUser);
 
 // Login
 // POST /api/auth/user/<user_id>
