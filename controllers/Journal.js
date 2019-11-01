@@ -1,14 +1,24 @@
-// Required dependencies and packages
-var express = require("express");
-var mongoose = require("mongoose");
-
 // Ensuring that all models are required
 var db = require("../models");
 
 exports.getJournal = (req, res) => {
-    db.Journal.find().then(function (dbJournal) {
-        res.json(dbJournal);
-    })
+    const payload = req.authorize()
+    if (!payload) {
+        res.status(401).json({
+            status: 'Unauthorized',
+            data: null,
+            detail: "Bad Token",
+            code: 401
+        });
+    }
+
+    const { id } = payload
+
+
+    db.Journal.find({ userId: id })
+        .then(function (dbJournal) {
+            res.json(dbJournal);
+        })
         .catch(function (err) {
             res.json(err);
         });
@@ -16,15 +26,31 @@ exports.getJournal = (req, res) => {
 
 
 exports.saveJournal = (req, res) => {
-    db.Journal.create(req.body).then(
-        (response) => {
-            res.json("Your journal entry has been successfully saved!");
-        }
-    ).catch(
-        (err) => {
-            res.json(err);
+    const payload = req.authorize()
+    if (!payload) {
+        res.status(401).json({
+            status: 'Unauthorized',
+            data: null,
+            detail: "Bad Token",
+            code: 401
         });
+    }
 
+    const { id } = payload
+
+    db.Journal.create({ ...req.body, userId: id })
+    .then(
+        (response) => {
+            res.status(202).json({
+                status: 'Accepted',
+                data: response,
+                detail: null,
+                code: 202
+            });
+        }
+    ).catch((err) => {
+        res.json(err);
+    });
 };
 
 
