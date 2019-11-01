@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Gorditas|The+Girl+Next+Door&display=swap');
+
+.friendsmainpic {
+    position: absolute;
+    width: 375px;
+    height: 167px;
+    left: 0px;
+    top: 59px;
+    z-index: -1;
+}
+
+.mainheader {
+    position: absolute;
+    width: 182px;
+    height: 47px;
+    left: 100px;
+    top: 107px;
+    color: #ffffff;
+    font-family: Gorditas;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 44px;
+    text-align: center;
+}
+
+#cap {
+    color: #ffffff;
+    font-family: The Girl Next Door;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 26px;
+    text-align: center;
+}
+
+.caption1 {
+    position: absolute;
+    width: 121px;
+    height: 22px;
+    left: 48px;
+    top: 72px;
+}
+
+.caption2 {
+    position: absolute;
+    width: 114px;
+    height: 15px;
+    left: 69px;
+    top: 168px;
+}
+
+.caption3 {
+    position: absolute;
+    width: 121px;
+    height: 21px;
+    left: 248px;
+    top: 168px;
+}
