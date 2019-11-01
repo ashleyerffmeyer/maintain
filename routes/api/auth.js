@@ -13,8 +13,8 @@ router.post("/user", auth.createUser);
 router.post("/user/login", auth.getUser);
 
 // Login
-// POST /api/auth/user/<user_id>
-router.post("/user/:id", auth.deleteUser);
+// DELETE /api/auth/user/<user_id>
+router.delete("/user/:id", auth.deleteUser);
 
 // Exporting router
 module.exports = router;

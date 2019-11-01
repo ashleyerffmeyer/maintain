@@ -104,8 +104,12 @@ exports.createUser = async (req, res) => {
 };
 
 exports.deleteUser = (req, res) => {
-    models.User.deleteOne({ _id: req.params.id })
-    .then((result) => {
+    const { id } = req.params
+
+    models.User.deleteOne({ _id: id })
+    .then((resp) => {
+        console.log(resp)
+
         res.status(202).json({
             status: 'Accepted',
             data: null,
