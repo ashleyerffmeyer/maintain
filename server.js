@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1/maintain");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://maintain:maintain14@ds131905.mlab.com:31905/heroku_ppgvlmlw");
 
 // Start the API server
 app.listen(PORT, function () {
