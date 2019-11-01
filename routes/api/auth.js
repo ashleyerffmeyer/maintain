@@ -16,5 +16,7 @@ router.post("/user/login", auth.getUser);
 // DELETE /api/auth/user/<user_id>
 router.delete("/user/:id", auth.deleteUser);
 
+router.get("/me", auth.decodeToken)
+
 // Exporting router
 module.exports = router;

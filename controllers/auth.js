@@ -125,3 +125,23 @@ exports.deleteUser = (req, res) => {
         });
     });
 };
+
+// Protected endpoint
+exports.decodeToken = (req, res) => {
+    const payload = req.authorize()
+    if (!payload) {
+        res.status(401).json({
+            status: 'Unauthorized',
+            data: null,
+            detail: "Bad Token",
+            code: 401
+        });
+    }
+
+    res.json({
+        status: 'OK',
+        data: payload,
+        detail: null,
+        code: 200
+    })
+}

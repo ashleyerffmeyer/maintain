@@ -16,25 +16,5 @@ router.get("/", (req, res) => {
     })
 });
 
-// Protected endpoints
-router.get("/auth", (req, res) => {
-    const payload = req.authorize()
-    if (!payload) {
-        res.status(401).json({
-            status: 'Unauthorized',
-            data: null,
-            detail: "Bad Token",
-            code: 401
-        });
-    }
-
-    res.json({
-        status: 'OK',
-        data: payload,
-        detail: null,
-        code: 200
-    })
-});
-
 // Exporting router
 module.exports = router;
