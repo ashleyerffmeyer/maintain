@@ -9,6 +9,9 @@ const journalController = require("../../controllers/Journal");
 // GET /api/journal
 router.get("/", journalController.getJournal);
 
+// GET /api/journal/:postid
+router.get("/:postid", journalController.getJournal);
+
 // Save Journal entry
 // POST /api/journal
 router.post("/", journalController.saveJournal);

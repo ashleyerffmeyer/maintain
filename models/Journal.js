@@ -8,11 +8,12 @@ const JournalModel = new Schema(
         title: { type: String, required: true },
         date: { type: Date, default: Date.now },
         message: String,
-        image: String
+        image: String,
+        userId: { type: String, required: true }
     });
 
 // Creating new model
 const Journal = mongoose.model("Journal", JournalModel);
 
-// Exporting Journal 
+// Exporting Journal
 module.exports = Journal;
