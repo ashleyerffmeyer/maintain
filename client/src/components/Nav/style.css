@@ -1,0 +1,67 @@
+.navhead {
+    position: static;
+    height: 14px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    background: #D5AFAF;
+}
+
+.navbar {
+    position: static;
+    height: 45px;
+    left: 0px;
+    right: 0px;
+    top: 14px;
+    background: #FEF0F0;
+}
+.navigation a {
+    font-family: The Girl Next Door;
+    /* line-height: 44px; */
+}
+.searchicon {
+    width: 61px;
+    height: 65px;
+    left: 1271px;
+    top: 14px;
+}
+
+.menuicon {
+    position: absolute;
+    width: 25px;
+    height: 24.14px;
+    left: 339px;
+    top: 23px;
+}
+
+.homeicon {
+    position: absolute;
+    width: 25px;
+    height: 24.83px;
+    left: 183px;
+    top: 20px;
+}
+
+.usericon {
+    position: absolute;
+    width: 24px;
+    height: 26px;
+    left: 233px;
+    top: 20px;
+}
+
+.resourceicon {
+    position: absolute;
+    width: 25px;
+    height: 26.64px;
+    left: 282px;
+    top: 20px;
+}
+
+.MaintainTransLogo {
+    position: absolute;
+    width: 59px;
+    height: 45px;
+    left: 0px;
+    top: 13.5px;
+}
