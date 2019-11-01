@@ -1,7 +1,3 @@
-// Required dependencies and packages
-var express = require("express");
-var mongoose = require("mongoose");
-
 // Ensuring that all models are required
 var db = require("../models");
 

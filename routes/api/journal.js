@@ -6,16 +6,16 @@ const journalController = require("../../controllers/Journal");
 
 // journalController routes
 // Retrieve books saved from Journal
-router.get("/get_journal", journalController.getJournal);
+// GET /api/journal
+router.get("/", journalController.getJournal);
 
 // Save Journal entry
-router.post("/save_journal", journalController.saveJournal);
+// POST /api/journal
+router.post("/", journalController.saveJournal);
 
 // Delete Journal entry from saved list of Journal entries
-router.post("/delete_Journal/:id", journalController.deleteJournal);
-
-// Search for books by title using the Google Books API
-//router.get("/book_search/:title", googleBooksController.bookSearch);
+// DELETE /api/journal/<journal_id>
+router.delete("/:id", journalController.deleteJournal);
 
 // Exporting router
 module.exports = router;
