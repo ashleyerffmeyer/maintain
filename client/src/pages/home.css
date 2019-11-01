@@ -1,0 +1,29 @@
+.container {
+    position: relative;
+    top: 150px;
+    }
+    .missionstatement {
+        position: relative;
+        width: 375px;
+        height: 169px;
+        left: 0px;
+        margin-top: 20px;
+    }
+    
+    .slideshow {
+        position: absolute;
+        width: 375px;
+        height: 209px;
+        left: 0px;
+        top: 450px;
+        background: #FCD8D8;
+    }
+
+    h2 {
+        font-family: Gorditas;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 17px;
+        color: #EFB59D;
+    }
