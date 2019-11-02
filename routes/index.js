@@ -12,7 +12,7 @@ router.use("/api/journal", journal);
 
 // If no API routes are hit, send to the React app
 router.use('/*',function (req, res) {
-    res.sendFile(path.join(__dirname, "../client/public/index.html"));
+    res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
 // Export router
