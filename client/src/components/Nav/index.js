@@ -17,9 +17,9 @@ function Nav () {
         
         <div className="navigation">
             <a className="active" href="index.html"><img className="homeicon" src={house} alt="home"/> </a>
-            <a href="profile.html"> <img className="usericon" src={user}/></a>
+            <a href="profile.html"> <img className="usericon" src={user} alt="User Logo"/></a>
             <a href="resources.html"> <img className="resourceicon" src= {document} alt="resources"/> </a>
-            <a href="#"> <img className="menuicon" src={menu} alt="menu"/></a>
+            <a href="index.html"> <img className="menuicon" src={menu} alt="menu"/></a>
         </div>
     </div>
     </div>
