@@ -1,20 +1,25 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Nav from './components/Nav';
-import Footer from './components/Footer';
-import Header from './components/Header';
 import Home from './pages/home';
-import LoginForm from './components/LoginForm';
+import SimpleMap from './pages/map';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
+
 
 function App() {
   return (
-    <div >
-      {/* If you are wanting to load in a particular component to see how it looks uncomment them out in the function and import */}
-      <Nav />
-      <LoginForm />
-      <Footer />
-    </div>
+    <Router>
+      <Switch>
+        <Route path='/' exact name='home' component={Home} />
+        <Route path='/map' exact name='map' component={SimpleMap} />
+      </Switch>
+    </Router>
 
     // <div className="App">
     //   <header className="App-header">
