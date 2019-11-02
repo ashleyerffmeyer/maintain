@@ -17,10 +17,10 @@ function Nav() {
 
                 <div className="navigation">
                     {/* <a class="active" href="index.html"><img className="homeicon" src={house} alt="home"/> </a> */}
-                    <a class="active" href="/map"><img className="homeicon" src={house} alt="maps" /> </a>
-                    <a href="/journal"> <img className="usericon" src={user} /></a>
+                    <a className="active" href="/map"><img className="homeicon" src={house} alt="maps" /> </a>
+                    <a href="/journal"> <img className="usericon" src={user} alt="user"  /></a>
                     <a href="/recources"> <img className="resourceicon" src={document} alt="resources" /> </a>
-                    <a href="#"> <img className="menuicon" src={menu} alt="menu" /></a>
+                    <a href="/home"> <img className="menuicon" src={menu} alt="menu" /></a>
                 </div>
             </div>
         </div>
