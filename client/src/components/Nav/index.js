@@ -16,7 +16,7 @@ function Nav () {
             <img className="MaintainTransLogo" src={logo} alt="Maintain Logo"/>
         
         <div className="navigation">
-            <a class="active" href="index.html"><img className="homeicon" src={house} alt="home"/> </a>
+            <a className="active" href="index.html"><img className="homeicon" src={house} alt="home"/> </a>
             <a href="profile.html"> <img className="usericon" src={user}/></a>
             <a href="resources.html"> <img className="resourceicon" src= {document} alt="resources"/> </a>
             <a href="#"> <img className="menuicon" src={menu} alt="menu"/></a>
