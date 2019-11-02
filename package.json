@@ -22,9 +22,11 @@
   "dependencies": {
     "bcrypt": "^3.0.6",
     "express": "^4.16.3",
+    "google-map-react": "^1.1.5",
     "if-env": "^1.0.4",
     "jsonwebtoken": "^8.5.1",
     "logops": "^2.1.1",
-    "mongoose": "^5.7.7"
+    "mongoose": "^5.7.7",
+    "webpack-isomorphic-tools": "^3.0.6"
   }
 }
