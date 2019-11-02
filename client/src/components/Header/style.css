@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Gorditas|The+Girl+Next+Door&display=swap');
 
+.hero {
+    width: 100%;
+}
+
 .friendsmainpic {
     position: absolute;
-    width: 375px;
+    width: 100%;
     height: 167px;
     left: 0px;
     top: 59px;
