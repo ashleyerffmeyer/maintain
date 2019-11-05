@@ -1,6 +1,6 @@
 export function PostData(type, userData) {
-    let BaseURL = 'https://maintain-web-app.herokuapp.com/profileLogin';
-    //let BaseURL = 'http://localhost/socialapi/';
+   // let BaseURL = 'https://maintain-web-app.herokuapp.com/profileLogin';
+    let BaseURL = 'http://localhost/profileLogin/';
     
     return new Promise((resolve, reject) =>{
     fetch(BaseURL+type, {
