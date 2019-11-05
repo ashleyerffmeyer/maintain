@@ -27,6 +27,7 @@
     "jsonwebtoken": "^8.5.1",
     "logops": "^2.1.1",
     "mongoose": "^5.7.7",
+    "react-google-login": "^5.0.7",
     "webpack-isomorphic-tools": "^3.0.6"
   }
 }
