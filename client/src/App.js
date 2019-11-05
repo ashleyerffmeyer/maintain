@@ -6,6 +6,8 @@ import SimpleMap from './pages/map';
 import JOURNAL from './pages/journal';
 import LOGIN from './pages/profileLogin';
 
+
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -25,6 +27,8 @@ function App() {
       </Switch>
     </Router>
 
+    
+
     // <div className="App">
     //   <header className="App-header">
     //     <img src={logo} className="App-logo" alt="logo" />
@@ -42,6 +46,8 @@ function App() {
     //   </header>
     // </div>
   );
+
+  
 }
 
 export default App;

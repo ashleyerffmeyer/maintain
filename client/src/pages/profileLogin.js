@@ -3,7 +3,10 @@ import React, {Component} from 'react';
 import GoogleLogin from 'react-google-login';
 import {PostData} from '../services/postData';
 import {Redirect} from 'react-router-dom';
-const googleClientId = process.env.googleid;
+
+const googleid = process.env.REACT_APP_GOOGLE_API_KEY;
+
+
 
 class LOGIN extends Component {
 constructor(props) {
@@ -12,34 +15,20 @@ constructor(props) {
        loginError: false,
        redirect: false
 };
-this.signup = this.signup.bind(this);
+
 }
 
-signup(res, type) {
-  let postData;
-    if (type === 'google' && res.w3.U3) {
-    postData = {
-      name: res.w3.ig,
-      provider: type,
-      email: res.w3.U3,
-      provider_id: res.El,
-      token: res.Zi.access_token,
-      provider_pic: res.w3.Paa
-    };
-}
 
 if (postData) {
-PostData('signup', postData).then((result) => {
+PostData(postData).then((result) => {
    let responseJson = result;
-   sessionStorage.setItem("userData", JSON.stringify(responseJson));
+   sessionStorage.setItem( JSON.stringify(responseJson));
    this.setState({redirect: true});
 });
-} else {}
 }
-
 render() {
 
-if (this.state.redirect || sessionStorage.getItem('userData')) {
+if (this.state.redirect ) {
     return (<Redirect to={'/journal'}/>)
 }
 
@@ -48,7 +37,7 @@ if (this.state.redirect || sessionStorage.getItem('userData')) {
 const responseGoogle = (response) => {
     console.log("google console");
     console.log(response);
-    this.signup(response, 'google');
+    
 }
 
 return (
@@ -62,7 +51,7 @@ return (
 <br/><br/>
 
 <GoogleLogin
-clientId= {googleClientId}
+clientId={googleid}
 buttonText="Login with Google"
 onSuccess={responseGoogle}
 onFailure={responseGoogle}/>
