@@ -1,65 +1,88 @@
 import React, {Component} from 'react';
 
 import GoogleLogin from 'react-google-login';
-import {PostData} from '../services/postData';
-import {Redirect} from 'react-router-dom';
+
 
 const googleid = process.env.REACT_APP_GOOGLE_API_KEY;
 
 
 
 class LOGIN extends Component {
-constructor(props) {
-    super(props);
-       this.state = {
-       loginError: false,
-       redirect: false
-};
 
-}
+    constructor() {
+        super();
+        this.state = { isAuthenticated: false, user: null, token: ''};
+    }
 
+    logout = () => {
+        this.setState({isAuthenticated: false, token: '', user: null})
+    };
 
-if (postData) {
-PostData(postData).then((result) => {
-   let responseJson = result;
-   sessionStorage.setItem( JSON.stringify(responseJson));
-   this.setState({redirect: true});
-});
-}
-render() {
-
-if (this.state.redirect ) {
-    return (<Redirect to={'/journal'}/>)
-}
+    onFailure = (error) => {
+        alert(error);
+    }
 
 
+    googleResponse = (response) => {
+        const tokenBlob = new Blob([JSON.stringify({access_token: response.accessToken}, null, 2)], {type : 'application/json'});
+        const options = {
+            method: 'POST',
+            body: tokenBlob,
+            mode: 'cors',
+            cache: 'default'
+        };
+        fetch('http://localhost:4000/api/v1/auth/google', options).then(r => {
+            const token = r.headers.get('x-auth-token');
+            r.json().then(user => {
+                if (token) {
+                    this.setState({isAuthenticated: true, user, token})
+                }
+            });
+        })
+    };
 
-const responseGoogle = (response) => {
-    console.log("google console");
-    console.log(response);
-    
-}
+    render() {
+        let content = !!this.state.isAuthenticated ?
+                (
+                    <div>
+                        <p>Authenticated</p>
+                        <div>
+                            {this.state.user.email}
+                        </div>
+                        <div>
+                            <button onClick={this.logout} className="button">
+                                Log out
+                            </button>
+                        </div>
+                    </div>
+                ) :
+                (   <div>
+
+                 
+<GoogleLogin
+                        clientId={googleid}
+                        buttonText="Google Login"
+                        onSuccess={this.googleResponse}
+                        onFailure={this.onFailure}
+                    />
+
+
+ 
+
+  </div>
+
+
+);
 
 return (
-
-<div className="row body">
-<div className="medium-12 columns">
-<div className="medium-12 columns">
-<h2 id="welcomeText"></h2>
-
-
-<br/><br/>
-
-<GoogleLogin
-clientId={googleid}
-buttonText="Login with Google"
-onSuccess={responseGoogle}
-onFailure={responseGoogle}/>
-
-</div>
-</div>
-</div>
+    <div className="LOGIN">
+        {content}
+    </div>
 );
 }
+
+
+
 }
-export default LOGIN;
+
+export default LOGIN
