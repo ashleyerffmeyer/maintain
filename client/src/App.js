@@ -3,12 +3,13 @@ import React from 'react';
 import './App.css';
 import Home from './pages/home';
 import SimpleMap from './pages/map';
+import Journal from './pages/journal';
 
 import {
   BrowserRouter as Router,
   Switch,
   Route,
- // Link
+  // Link
 } from 'react-router-dom';
 
 
@@ -18,6 +19,7 @@ function App() {
       <Switch>
         <Route path='/' exact name='home' component={Home} />
         <Route path='/map' exact name='map' component={SimpleMap} />
+        <Route path='/journal' exact name='journal' component={Journal} />
       </Switch>
     </Router>
 

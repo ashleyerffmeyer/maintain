@@ -2,17 +2,17 @@
 var db = require("../models");
 
 exports.getJournal = (req, res) => {
-    const payload = req.authorize()
-    if (!payload) {
-        res.status(401).json({
-            status: 'Unauthorized',
-            data: null,
-            detail: "Bad Token",
-            code: 401
-        });
-    }
-
-    const { id } = payload
+    /**const payload = req.authorize()
+     if (!payload) {
+         res.status(401).json({
+             status: 'Unauthorized',
+             data: null,
+             detail: "Bad Token",
+             code: 401
+         });
+     }
+ 
+     const { id } = payload */
 
 
     db.Journal.find({ userId: id })
@@ -26,7 +26,7 @@ exports.getJournal = (req, res) => {
 
 
 exports.saveJournal = (req, res) => {
-    const payload = req.authorize()
+    /**const payload = req.authorize()
     if (!payload) {
         res.status(401).json({
             status: 'Unauthorized',
@@ -36,21 +36,21 @@ exports.saveJournal = (req, res) => {
         });
     }
 
-    const { id } = payload
+    const { id } = payload*/
 
     db.Journal.create({ ...req.body, userId: id })
-    .then(
-        (response) => {
-            res.status(202).json({
-                status: 'Accepted',
-                data: response,
-                detail: null,
-                code: 202
-            });
-        }
-    ).catch((err) => {
-        res.json(err);
-    });
+        .then(
+            (response) => {
+                res.status(202).json({
+                    status: 'Accepted',
+                    data: response,
+                    detail: null,
+                    code: 202
+                });
+            }
+        ).catch((err) => {
+            res.json(err);
+        });
 };
 
 

@@ -7,9 +7,9 @@ const JournalModel = new Schema(
     {
         title: { type: String, required: true },
         date: { type: Date, default: Date.now },
-        message: String,
-        image: String,
-        userId: { type: String, required: true }
+        entry: String,
+        //image: String,
+        // userId: { type: String, required: true }
     });
 
 // Creating new model
