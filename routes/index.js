@@ -9,12 +9,14 @@ var passport = require('passport');
 var config = require('../config');
 var request = require('request');
 require('../passport')();
+const apiRoutes = require("./api");
 // API Routes
+router.use("/api", apiRoutes);
 router.use("/api/health", health);
 router.use("/api/auth", auth);
 router.use("/api/journal", journal);
 router.route('/auth/google')
-    .post(passport.authenticate('google-token', {session: false}), function(req, res, next) {
+    .post(passport.authenticate('google-token', { session: false }), function (req, res, next) {
         if (!req.user) {
             return res.send(401, 'User Not Authenticated');
         }
@@ -27,7 +29,7 @@ router.route('/auth/google')
 
 
 // If no API routes are hit, send to the React app
-router.use('/*',function (req, res) {
+router.use('/*', function (req, res) {
     res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 

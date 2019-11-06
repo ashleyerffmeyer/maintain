@@ -46,7 +46,7 @@ class Journal extends Component {
                 title: this.state.title,
                 synopsis: this.state.synopsis
             })
-                .then(res => this.loadTitle())
+                .then(res => this.loadJournal())
                 .catch(err => console.log(err));
         }
     };
@@ -55,40 +55,43 @@ class Journal extends Component {
             <PageWrapper>
                 <div className="container pt-3">
                     <div className="journal-entry">
-                        <h2>Journal Entry</h2>
-                        <p>Take note of an event below</p>
+                        <h1>Personal Journal</h1>
+                        <h2>Take note of an event below</h2>
                         <form>
                             <Input
-                                className="journalEntryTitle"
+                                name="journalTitle"
                                 value={this.state.title}
                                 onChange={this.handleInputChange}
-                                placeholder="Journal Entry Title"
+                                placeholder="Journal Entry Title (Required)"
                             />
                             <TextArea
-                                className="journalEntryText"
+                                name="journalSynopsis"
                                 value={this.state.synopsis}
                                 onChange={this.handleInputChange}
-                                placeholder="Add Journal Entry Here"
+                                placeholder="Journal Entry Synopsis (Required)"
                             />
                             <FormBtn
                                 disabled={!(this.state.title && this.state.synopsis)}
                                 onClick={this.handleFormSubmit}
                             >
-                                Add Post
-                      </FormBtn>
+                                Add Journal Entry
+                            </FormBtn>
                         </form>
+                        <br></br>
+                        <br></br>
                         <div className="journal-entry-list">
-                            <p>All Journal Entries</p>
+                            <h2>All Journal Entries</h2>
                             {this.state.entries.length ? (
                                 <List>
-                                    {this.state.entries.map(journal => (
-                                        <ListItem key={journal._id}>
-                                            <Link to={"api/journals/" + journal._id}>
+                                    {this.state.entries.map(entries => (
+                                        <ListItem key={entries._id}>
+                                            <Link to={"/journals/" + entries._id}>
                                                 <strong>
-                                                    {journal.title} by {journal.synopsis}
+                                                    {entries.title}
                                                 </strong>
+                                                {entries.synopsis}
                                             </Link>
-                                            <DeleteBtn onClick={() => this.deleteJournal(journal._id)} />
+                                            <DeleteBtn onClick={() => this.deleteJournal(entries._id)} />
                                         </ListItem>
                                     ))}
                                 </List>

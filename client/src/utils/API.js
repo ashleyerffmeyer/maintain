@@ -5,7 +5,7 @@ export default {
     getJournals: function () {
         return axios.get("/api/journals");
     },
-    // Gets the journal with the given id
+    // Gets the entry with the given id
     getJournal: function (id) {
         return axios.get("/api/journals/" + id);
     },
