@@ -1,24 +1,16 @@
-// Required dependencies and packages
 const router = require("express").Router();
-
-// Require journal controller
 const journalController = require("../../controllers/Journal");
 
-// journalController routes
-// Retrieve books saved from Journal
-// GET /api/journal
-router.get("/", journalController.getJournal);
+// Matches with "/api/journals"
+router.route("/")
+    .get(journalController.findAll)
+    .post(journalController.create);
 
-// GET /api/journal/:postid
-router.get("/:postid", journalController.getJournal);
+// Matches with "/api/journals/:id"
+router
+    .route("/:id")
+    .get(journalController.findById)
+    .put(journalController.update)
+    .delete(journalController.remove);
 
-// Save Journal entry
-// POST /api/journal
-router.post("/", journalController.saveJournal);
-
-// Delete Journal entry from saved list of Journal entries
-// DELETE /api/journal/<journal_id>
-router.delete("/:id", journalController.deleteJournal);
-
-// Exporting router
 module.exports = router;

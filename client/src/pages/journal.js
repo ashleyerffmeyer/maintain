@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
+import API from "../utils/API";
 import PageWrapper from '../components/PageWrapper';
-import Button from '../components/Button';
-import Input from '../components/Input';
+import DeleteBtn from '../components/DeleteBtn';
+import { Link } from "react-router-dom";
 import { List, ListItem } from "../components/List";
 import "./journal.css";
+import { Input, TextArea, FormBtn } from "../components/Form";
 
 class Journal extends Component {
     state = {
-        journal: [],
+        entries: [],
         title: "",
-        date: "",
-        entry: "",
+        synopsis: ""
     };
 
     componentDidMount() {
@@ -18,10 +19,16 @@ class Journal extends Component {
     };
 
     loadJournal = () => {
-        getJournal()
+        API.getJournal()
             .then(res =>
-                this.setState({ journal: res.data, title: "", date: "", entry: "" })
+                this.setState({ entries: res.data, title: "", synopsis: "" })
             )
+            .catch(err => console.log(err));
+    };
+
+    deleteJournal = id => {
+        API.deleteJournal(id)
+            .then(res => this.loadJournal())
             .catch(err => console.log(err));
     };
 
@@ -34,11 +41,15 @@ class Journal extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        if (this.state.title && this.state.entry) {
-
+        if (this.state.title && this.state.synopsis) {
+            API.saveJournal({
+                title: this.state.title,
+                synopsis: this.state.synopsis
+            })
+                .then(res => this.loadTitle())
+                .catch(err => console.log(err));
         }
     };
-
     render() {
         return (
             <PageWrapper>
@@ -49,35 +60,40 @@ class Journal extends Component {
                         <form>
                             <Input
                                 className="journalEntryTitle"
-                                value={this.state.journalEntryTitle}
+                                value={this.state.title}
                                 onChange={this.handleInputChange}
                                 placeholder="Journal Entry Title"
                             />
-                            <Input
+                            <TextArea
                                 className="journalEntryText"
-                                value={this.state.journalEntryText}
+                                value={this.state.synopsis}
                                 onChange={this.handleInputChange}
                                 placeholder="Add Journal Entry Here"
                             />
-                            <Button
+                            <FormBtn
+                                disabled={!(this.state.title && this.state.synopsis)}
                                 onClick={this.handleFormSubmit}
-                                type="success"
-                                className="input-lg"
                             >
-                                Search
-                      </Button>
+                                Add Post
+                      </FormBtn>
                         </form>
                         <div className="journal-entry-list">
                             <p>All Journal Entries</p>
-                            {this.state.journal.length ? (
+                            {this.state.entries.length ? (
                                 <List>
-                                    {this.state.journal.map(journal => (
+                                    {this.state.entries.map(journal => (
                                         <ListItem key={journal._id}>
+                                            <Link to={"api/journals/" + journal._id}>
+                                                <strong>
+                                                    {journal.title} by {journal.synopsis}
+                                                </strong>
+                                            </Link>
+                                            <DeleteBtn onClick={() => this.deleteJournal(journal._id)} />
                                         </ListItem>
                                     ))}
                                 </List>
                             ) : (
-                                    <h3>No Results to Display</h3>
+                                    <p>No Entries to Display</p>
                                 )}
                         </div>
                     </div>

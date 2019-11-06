@@ -6,8 +6,8 @@ const Schema = mongoose.Schema;
 const JournalModel = new Schema(
     {
         title: { type: String, required: true },
-        date: { type: Date, default: Date.now },
         entry: String,
+        date: { type: Date, default: Date.now },
         //image: String,
         // userId: { type: String, required: true }
     });
