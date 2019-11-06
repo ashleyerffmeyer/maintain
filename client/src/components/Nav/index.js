@@ -4,6 +4,7 @@ import house from "../../assets/house.png";
 import document from "../../assets/document.png";
 import user from "../../assets/user.png";
 import menu from "../../assets/menu.png";
+// import resources from "../../../src/pages/resources";
 
 import "./style.css";
 

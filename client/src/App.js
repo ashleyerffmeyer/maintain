@@ -4,6 +4,9 @@ import './App.css';
 import Home from './pages/home';
 import SimpleMap from './pages/map';
 import Journal from './pages/journal';
+import LOGIN from './pages/profileLogin';
+
+
 
 import {
   BrowserRouter as Router,
@@ -20,8 +23,11 @@ function App() {
         <Route path='/' exact name='home' component={Home} />
         <Route path='/map' exact name='map' component={SimpleMap} />
         <Route path='/journal' exact name='journal' component={Journal} />
+        <Route path='/profileLogin' exact name='journal' component={LOGIN} />
       </Switch>
     </Router>
+
+
 
     // <div className="App">
     //   <header className="App-header">
@@ -40,6 +46,8 @@ function App() {
     //   </header>
     // </div>
   );
+
+
 }
 
 export default App;
