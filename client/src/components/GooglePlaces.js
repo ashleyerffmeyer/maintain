@@ -3,9 +3,9 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from 'react-places-autocomplete';
- 
+
 const searchOptions = {
-    types: ['police']
+  types: ['police', 'counselor', 'hospital', 'quick trip']
 }
 
 class GooglePlaces extends React.Component {
@@ -13,18 +13,18 @@ class GooglePlaces extends React.Component {
     super(props);
     this.state = { address: '' };
   }
- 
+
   handleChange = address => {
     this.setState({ address });
   };
- 
+
   handleSelect = address => {
     geocodeByAddress(address)
       .then(results => getLatLng(results[0]))
       .then(latLng => console.log('Success', latLng))
       .catch(error => console.error('Error', error));
   };
- 
+
   render() {
     return (
       <PlacesAutocomplete

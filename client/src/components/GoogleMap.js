@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+import axios from 'axios';
 
 const YourLocation = ({ text }) => <div className="btn btn-primary">{text}</div>;
 const MapMarker = ({ text }) => <div className="btn btn-secondary">{text}</div>;
@@ -19,6 +20,7 @@ class GoogleMap extends Component {
             },
             zoom: 9
         };
+        this.getPlaces = this.getPlaces.bind(this);
     }
 
     componentDidMount() {
@@ -29,12 +31,13 @@ class GoogleMap extends Component {
     getPlaces(res) {
         google = window.google;
         map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: -34.397, lng: 150.644},
+            center: { lat: -34.397, lng: 150.644 },
             zoom: 13
         });
         infoWindow = new google.maps.InfoWindow;
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
+            let self = this;
+            navigator.geolocation.getCurrentPosition(function (position) {
                 var pos = {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
@@ -43,8 +46,25 @@ class GoogleMap extends Component {
                 infoWindow.setContent('You are here.');
                 infoWindow.open(map);
                 map.setCenter(pos);
-            }, function() {
-                this.handleLocationError(true, infoWindow, map.getCenter());
+
+
+                var request = {
+                    location: pos,
+                    radius: '2000',
+                    type: 'hospital'
+                }
+                var service = new google.maps.places.PlacesService(map);
+
+                service.nearbySearch(request, function (results, status) {
+                    console.log(results)
+                    if (status === google.maps.places.PlacesServiceStatus.OK) {
+                        for (var i = 0; i < results.length; i++) {
+                            self.createMarker(results[i].geometry.location, results[i].name, true);
+                        }
+                    }
+                });
+            }, function () {
+                self.handleLocationError(true, infoWindow, map.getCenter());
             });
         } else {
             this.handleLocationError(false, infoWindow, map.getCenter());
@@ -53,7 +73,7 @@ class GoogleMap extends Component {
         autocomplete = new google.maps.places.Autocomplete(document.getElementById('places_search'), {
             // types: ['lawyer', 'police', 'courthouse', 'doctor', 'hospital', 'police'],
             types: ['establishment'],
-            componentRestrictions: {country: 'us'},
+            componentRestrictions: { country: 'us' },
             bounds: map.getBounds()
         });
     }
@@ -72,11 +92,21 @@ class GoogleMap extends Component {
         // console.log(autocomplete.getPlaces())
     }
 
+    createMarker(position, title, isPark = false) {
+        var icon = isPark ? 'http://maps.google.com/mapfiles/ms/icons/green-dot.png' : 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
+        new google.maps.Marker({
+            position: position,
+            map: map,
+            title: title,
+            icon: icon
+        });
+    }
+
     render() {
         return (
             <div className="">
-                <input id="places_search" name="places_search" placeholder="Search.." style={{ 'display': 'block' }}/>
-                <div id="map" style={{'height': '550px'}}></div>
+                <input id="places_search" name="places_search" placeholder="Search.." style={{ 'display': 'block' }} />
+                <div id="map" style={{ 'height': '550px' }}></div>
             </div>
         );
     }
