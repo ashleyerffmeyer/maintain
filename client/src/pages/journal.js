@@ -11,12 +11,22 @@ class Journal extends Component {
     state = {
         entries: [],
         title: "",
-        synopsis: ""
+        synopsis: "",
+        profile: null,
+        error: ""
     };
 
     componentDidMount() {
+        this.loadUserProfile();
         this.loadJournal();
     };
+
+    loadUserProfile() {
+        this.props.auth.getProfile((profile, error) =>
+            this.setState({ profile, error })
+        );
+    }
+
 
     loadJournal = () => {
         API.getJournal()
@@ -51,8 +61,20 @@ class Journal extends Component {
         }
     };
     render() {
+        const {  logout } = this.props.auth;
+        const { profile } = this.state;
+        if (!profile) return null;
         return (
             <PageWrapper>
+                <button onClick={logout}>Log Out</button>
+                <h1>Profile</h1>
+                <p>{profile.nickname}</p>
+                <img
+                    style={{ maxWidth: 50, maxHeight: 50 }}
+                    src={profile.picture}
+                    alt="profile pic"
+                />
+                <pre>{JSON.stringify(profile, null, 2)}</pre>
                 <div className="container pt-3">
                     <div className="journal-entry">
                         <h1>Personal Journal</h1>
