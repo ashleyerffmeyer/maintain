@@ -6,8 +6,8 @@ function LoginButton (props) {
   const { login, logout, isAuthenticated } = props.auth;
   return (
     isAuthenticated()
-      ? <button onClick={logout}>Log Out</button>
-      : <button onClick={login}>Log In</button>
+      ? <button class="logbutton" onClick={logout}>Log Out</button>
+      : <button class= "logbutton" onClick={login}>Log In</button>
   )
 }
 

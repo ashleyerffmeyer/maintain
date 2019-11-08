@@ -2,6 +2,12 @@ html {
 
 }
 
+.logbutton{
+    position: absolute;
+    z-index: 10;
+    right: 80%;
+}
+
 .navhead {
     position: static;
     height: 14px;
