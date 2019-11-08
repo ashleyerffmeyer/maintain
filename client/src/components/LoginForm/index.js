@@ -19,7 +19,7 @@ function LoginForm() {
             <input type="password" class="password-input" placeholder="Password" />
           </div>
           <div class="login-form form-check">
-            <p class="regtext"> <a href="#">No account? Create one here!</a></p>
+            <p class="regtext"> <a href="/">No account? Create one here!</a></p>
           </div>
           <button type="submit" class="btn btn-primary submitbtn">Login</button>
         </form>
