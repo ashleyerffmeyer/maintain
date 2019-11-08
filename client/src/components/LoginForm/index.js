@@ -1,8 +1,6 @@
 import React from "react";
 import avatar from "../../assets/avatar.png";
 
-
-
 import "./style.css";
 
 function LoginForm() {
@@ -10,7 +8,7 @@ function LoginForm() {
     <div>
 
       <div className="profile login">
-        <img class="loginicon" src={avatar}></img>
+        <img class="loginicon" src={avatar} alt="avatar"></img>
         <form>
           <div className="login-form">
             <label class="emailtext" for="email">Email</label>

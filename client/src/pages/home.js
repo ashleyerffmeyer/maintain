@@ -1,13 +1,14 @@
 import React from "react";
-import PageWrapper from '../components/PageWrapper';
-import "./home.css";
-import Nav from '../components/Nav';
+
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Carousel from 'react-bootstrap/Carousel'
+
 import slideone from '../assets/care-caregiver-deal-45842.jpg'
 import slidetwo from '../assets/woman-holding-flower.jpg'
 import slidethree from '../assets/abuse-adult-anger-568021.jpg'
+
+import "./home.css";
 
 
 
@@ -15,7 +16,6 @@ function Home() {
     return (
 
         <div>
-            <Nav />
             <Header />
             <div className="container pt-3">
                 <div className="missionstatement">
