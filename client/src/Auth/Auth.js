@@ -3,8 +3,6 @@ import auth0 from "auth0-js";
 const { host, protocol } = window.location
 const oauthCallbackUrl = protocol+'//'+host+'/callback'
 
-console.log(oauthCallbackUrl)
-
 export default class Auth {
   constructor(history) {
     this.history = history;
