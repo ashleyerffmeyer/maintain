@@ -9,8 +9,8 @@
 }
 
 .slideshow {
-    position: absolute;
-    height: 209px;
+    
+    height: 409px;
     left: 0px;
     top: 450px;
     background: #FCD8D8;
@@ -23,4 +23,24 @@ h2 {
     font-size: 14px;
     line-height: 17px;
     color: #EFB59D;
+}
+
+
+@media (min-width:1025px) {
+    .container {
+    position: relative;
+    top: 0px;
+
+    }
+
+    .carousel .slide{
+        width: 300px;
+        height: 300px;
+    }
+
+    .carousel {
+        margin: 0 auto;
+        width: 400px;
+        height: 200px;
+    }
 }

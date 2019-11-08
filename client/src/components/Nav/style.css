@@ -1,3 +1,7 @@
+html {
+
+}
+
 .navhead {
     position: static;
     height: 14px;
@@ -7,7 +11,7 @@
     background: #D5AFAF;
 }
 
-.navbar {
+.navbars {
     position: static;
     height: 45px;
     left: 0px;
@@ -50,7 +54,7 @@
     top: 20px;
 }
 
-.resourceicon {
+.mapicon {
     position: absolute;
     width: 25px;
     height: 26.64px;
@@ -64,4 +68,119 @@
     height: 45px;
     left: 0px;
     top: 13.5px;
+}
+
+@media (min-width:1025px) {
+    /* hi-res laptops and desktops */
+
+    .navhead {
+        display: none;
+    }
+    .navbars {
+        position: absolute;
+        height: 150px;
+        left: 0px;
+        top: 0px;
+        background: transparent;
+    }
+    .MaintainTransLogo {
+        position: absolute;
+        width: 146px;
+        height: 150px;
+        left: 0px;
+        top: 0px;
+        z-index: 10;
+    }
+    a:hover{
+        background-color: #545353;
+        opacity: 0.55;
+        
+        
+    }
+    a.home {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 44px;
+        text-align: center;
+        color: #FFFFFF;
+        position: absolute;
+        width: 127px;
+        height: 64px;
+        left: 508px;
+        top: 14px;
+        border: 3px solid #FFFFFF;
+        border-radius: 25px;
+        box-sizing: border-box;
+        z-index: 10;
+    }
+    a.map {
+        position: absolute;
+        width: 127px;
+        height: 64px;
+        left: 671px;
+        top: 14px;
+        border: 3px solid #FFFFFF;
+        border-radius: 25px;
+        box-sizing: border-box;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 44px;
+        text-align: center;
+        color: #FFFFFF;
+        z-index: 10;
+    }
+    a.user {
+        position: absolute;
+        width: 127px;
+        height: 64px;
+        left: 840px;
+        top: 13px;
+        border: 3px solid #FFFFFF;
+        border-radius: 25px;
+        box-sizing: border-box;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 44px;
+        text-align: center;
+        color: #FFFFFF;
+        z-index: 10;
+    }
+    a.menu {
+        position: absolute;
+        width: 127px;
+        height: 64px;
+        left: 1000px;
+        top: 13px;
+        border: 3px solid #FFFFFF;
+        border-radius: 25px;
+        box-sizing: border-box;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 33px;
+        text-align: center;
+        color: #FFFFFF;
+        z-index: 10;
+    }
+    .homeicon {
+        display: none;
+    }
+    .usericon {
+        display: none;
+    }
+    .mapicon {
+        display: none;
+    }
+    .menuicon {
+        display: none;
+    }
+    
+    .container {
+        position: relative;
+        top: 0px;
+    }
 }

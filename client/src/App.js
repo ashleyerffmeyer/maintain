@@ -5,6 +5,12 @@ import Home from './pages/home';
 import SimpleMap from './pages/map';
 import Journal from './pages/journal';
 import LOGIN from './pages/profileLogin';
+import Profile from './pages/profile'; 
+import Nav from './components/Nav';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import 'bootstrap/dist/css/bootstrap.min.css';
+// adding profile here to take a look at the login page
 
 
 
@@ -19,12 +25,15 @@ import {
 function App() {
   return (
     <Router>
+   
       <Switch>
         <Route path='/' exact name='home' component={Home} />
         <Route path='/map' exact name='map' component={SimpleMap} />
         <Route path='/journal' exact name='journal' component={Journal} />
         <Route path='/profileLogin' exact name='journal' component={LOGIN} />
+        <Route path='/profile' exact name='profile' component={Profile} />
       </Switch>
+    
     </Router>
 
 
