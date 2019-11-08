@@ -11,20 +11,31 @@ class Journal extends Component {
     state = {
         entries: [],
         title: "",
-        synopsis: ""
+        synopsis: "",
+        profile: null,
+        error: ""
     };
 
     componentDidMount() {
-        this.loadJournals();
+        this.loadUserProfile();
     };
 
     loadJournals = () => {
         API.getJournals()
-            .then(res =>
+            .then((res) =>
                 this.setState({ entries: res.data, title: "", synopsis: "" })
             )
             .catch(err => console.log(err));
     };
+
+    loadUserProfile() {
+        this.props.auth.getProfile((profile, error) =>
+            this.setState(
+                { profile, error },
+                this.loadJournals
+            )
+        );
+    }
 
     deleteJournal = id => {
         API.deleteJournal(id)
@@ -53,8 +64,20 @@ class Journal extends Component {
         }
     };
     render() {
+        const { profile } = this.state;
+        if (!profile) return null;
         return (
             <PageWrapper>
+                <h1>Profile</h1>
+                <p>Name : {profile.name}</p>
+                <p>Nick Name : {profile.nickname}</p>
+                <p>Email : {profile.email}</p>
+                <img
+                    style={{ maxWidth: 200, maxHeight: 200 }}
+                    src={profile.picture}
+                    alt="profile pic"
+                />
+
                 <div className="container pt-3">
                     <div className="journal-entry">
                         <h1>Personal Journal</h1>

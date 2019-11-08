@@ -1,53 +1,43 @@
-import React from 'react';
-//import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Route, Redirect } from "react-router-dom";
 import Home from './pages/home';
 import SimpleMap from './pages/map';
 import Journal from './pages/journal';
-import LOGIN from './pages/profileLogin';
+import Callback from "./pages/Callback";
+import Auth from "./Auth/Auth";
+import Nav from "./components/Nav";
 
+import './App.css';
 
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.auth = new Auth(this.props.history);
+  }
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  // Link
-} from 'react-router-dom';
-
-
-function App() {
-  return (
-    <Router>
-      <Switch>
-        <Route path='/' exact name='home' component={Home} />
-        <Route path='/map' exact name='map' component={SimpleMap} />
-        <Route path='/journal' exact name='journal' component={Journal} />
-        <Route path='/profileLogin' exact name='journal' component={LOGIN} />
-      </Switch>
-    </Router>
-
-
-
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
-  );
-
-
+  render() {
+    return (
+      <>
+        <Nav auth={this.auth} />
+        <div className="body">
+          <Route path="/" exact render={Home} />
+          <Route path="/map" exact render={(props) => <SimpleMap {...props} />} />
+          <Route
+            path="/callback"
+            render={(props) => <Callback auth={this.auth} {...props} />}
+          />
+          <Route
+            path="/journal"
+            render={(props) => {
+              return this.auth.isAuthenticated()
+                ? <Journal auth={this.auth} {...props} />
+                : <Redirect to="/" />
+            }}
+          />
+        </div>
+      </>
+    );
+  }
 }
 
 export default App;

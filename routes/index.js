@@ -2,31 +2,13 @@
 const path = require("path");
 const router = require("express").Router();
 const health = require("./api/health");
-const auth = require("./api/auth");
 const journal = require("./api/journal");
-var { generateToken, sendToken } = require('../utils/utils2/token.utils');
-var passport = require('passport');
-var config = require('../config');
-var request = require('request');
-require('../passport')();
+
 const apiRoutes = require("./api");
 // API Routes
 router.use("/api", apiRoutes);
 router.use("/api/health", health);
-router.use("/api/auth", auth);
-//router.use("/api/journal", journal);
-router.route('/auth/google')
-    .post(passport.authenticate('google-token', { session: false }), function (req, res, next) {
-        if (!req.user) {
-            return res.send(401, 'User Not Authenticated');
-        }
-        req.auth = {
-            id: req.user.id
-        };
-
-        next();
-    }, generateToken, sendToken);
-
+router.use("/api/journal", journal);
 
 // If no API routes are hit, send to the React app
 router.use('/*', function (req, res) {
