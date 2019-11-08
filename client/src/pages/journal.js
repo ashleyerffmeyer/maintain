@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import API from "../utils/API";
 import PageWrapper from '../components/PageWrapper';
 import DeleteBtn from '../components/DeleteBtn';
-//import { Link } from "react-router-dom";
 import { List, ListItem } from "../components/List";
-import "./journal.css";
 import { Input, TextArea, FormBtn } from "../components/Form";
+
+import "./journal.css";
 
 class Journal extends Component {
     state = {
