@@ -1,13 +1,8 @@
 
 import React, { Component } from 'react';
-import axios from 'axios';
-
-const YourLocation = ({ text }) => <div className="btn btn-primary">{text}</div>;
-const MapMarker = ({ text }) => <div className="btn btn-secondary">{text}</div>;
 const API_KEY = 'AIzaSyDLQVZcxQF9DGhPlYxExI3nrOr9wTC9Mqg'
 
-
-let map, infoWindow, google, autocomplete;
+let map, infoWindow, google;
 
 class GoogleMap extends Component {
     constructor(props) {
@@ -34,7 +29,7 @@ class GoogleMap extends Component {
             center: { lat: -34.397, lng: 150.644 },
             zoom: 13
         });
-        infoWindow = new google.maps.InfoWindow;
+        infoWindow = new google.maps.InfoWindow();
         if (navigator.geolocation) {
             let self = this;
             navigator.geolocation.getCurrentPosition(function (position) {
@@ -70,7 +65,7 @@ class GoogleMap extends Component {
             this.handleLocationError(false, infoWindow, map.getCenter());
         }
 
-        autocomplete = new google.maps.places.Autocomplete(document.getElementById('places_search'), {
+        new google.maps.places.Autocomplete(document.getElementById('places_search'), {
             // types: ['lawyer', 'police', 'courthouse', 'doctor', 'hospital', 'police'],
             types: ['establishment'],
             componentRestrictions: { country: 'us' },
@@ -89,7 +84,6 @@ class GoogleMap extends Component {
     locationSearch() {
         console.log('locationSearch()')
         console.log(map.getBounds())
-        // console.log(autocomplete.getPlaces())
     }
 
     createMarker(position, title, isPark = false) {
