@@ -1,4 +1,6 @@
 import React from "react";
+import LoginButton from "../LoginButton";
+
 import logo from "../../assets/maintainlogo.png";
 import house from "../../assets/house.png";
 import document from "../../assets/document.png";
@@ -8,12 +10,11 @@ import menu from "../../assets/menu.png";
 
 import "./style.css";
 
-function Nav() {
+function Nav(props) {
     return (
         <div>
             <div className="navhead"></div>
             <div className="navbar">
-
                 <a href="/"> <img className="MaintainTransLogo" src={logo} alt="Maintain Logo" /> </a>
 
                 <div className="navigation">
@@ -22,6 +23,7 @@ function Nav() {
                     <a href="/journal"> <img className="usericon" src={user} alt="user"  /></a>
                     <a href="/recources"> <img className="resourceicon" src={document} alt="resources" /> </a>
                     <a href="/home"> <img className="menuicon" src={menu} alt="menu" /></a>
+                    <LoginButton auth={props.auth} />
                 </div>
             </div>
         </div>
