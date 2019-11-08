@@ -1,0 +1,81 @@
+.loginicon {
+    position: absolute;
+    width: 92px;
+    height: 92px;
+    left: 134px;
+    top: 17px;
+}
+
+.profile {
+    position: absolute;
+    width: 353px;
+    height: 356px;
+    left: 11px;
+    top: 72px;
+    background-color: #E6B8B8;
+}
+
+.emailtext {
+    position: absolute;
+    width: 75px;
+    height: 18px;
+    left: 31px;
+    top: 143px;
+    font-family: The Girl Next Door;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 26px;
+    text-align: center;
+    color: #000000;
+}
+
+.email-input {
+    position: absolute;
+    width: 136px;
+    height: 20px;
+    left: 126px;
+    top: 149px;
+}
+
+.passwordtext {
+    position: absolute;
+    width: 75px;
+    height: 18px;
+    left: 31px;
+    top: 183px;
+    font-family: The Girl Next Door;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 26px;
+    text-align: center;
+    color: #000000;
+}
+
+.password-input {
+    position: absolute;
+    width: 136px;
+    height: 20px;
+    left: 126px;
+    top: 181px;
+}
+
+.regtext {
+    position: absolute;
+    left: 44px;
+    top: 327px;
+}
+
+.submitbtn {
+    position: absolute;
+    width: 111px;
+    height: 40px;
+    left: 126px;
+    top: 226px;
+    background-color: #D0C4C4;
+}
+
+/* html {
+    background-color: #E7DDDD;
+} */

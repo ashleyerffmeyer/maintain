@@ -10,7 +10,7 @@ function Header() {
             <h1 className="mainheader">Maintain</h1>
             <h3 className="caption1" id="cap">...your safety</h3>
             <h3 className="caption2" id="cap">...your strategy</h3>
-            <h3 className="caption3" id="cap">...your well-being</h3>
+            <h3 className="caption3" id="cap">...your health</h3>
         </div>
 
     );

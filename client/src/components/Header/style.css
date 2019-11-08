@@ -61,3 +61,79 @@
     left: 248px;
     top: 168px;
 }
+
+/* Media query */
+@media (min-width:1025px) {
+
+.friendsmainpic {
+    /* position: relative; */
+    opacity: 0.70;
+    top: 0px;
+    bottom: 0px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100vw;
+    height: 490px;
+}
+.mainheader {
+    position: absolute;
+    width: 533px;
+    height: 137px;
+    left: 421px;
+    top: 257px;
+    font-family: Gorditas;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 96px;
+    line-height: 116px;
+    text-align: center;
+    color: #BB7A7A;
+}
+#cap {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 66px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+@keyframes fadein {
+    from {
+    opacity: 0; 
+    }
+  
+    to {
+     opacity: 1;
+    }
+  }
+
+.caption1 {
+    position: absolute;
+    width: 265px;
+    height: 82px;
+    left: 169px;
+    top: 230px;
+    animation-duration: 5s;
+    animation-name: fadein;
+}
+.caption2 {
+    position: absolute;
+    width: 284px;
+    height: 84px;
+    left: 49px;
+    top: 325px;
+    animation-duration: 7s;
+    animation-name: fadein;
+}
+.caption3 {
+    position: absolute;
+    height: 91px;
+    left: 983px;
+    top: 257px;
+    animation-duration: 10s;
+    animation-name: fadein;
+}
+}

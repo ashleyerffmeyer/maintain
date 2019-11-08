@@ -6,8 +6,10 @@ import Journal from './pages/journal';
 import Callback from "./pages/Callback";
 import Auth from "./Auth/Auth";
 import Nav from "./components/Nav";
+import Profile from "./pages/profile.js"
 
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
   constructor(props) {
@@ -34,6 +36,7 @@ class App extends Component {
                 : <Redirect to="/" />
             }}
           />
+          <Route path='/profile' exact name='profile' component={Profile} />
         </div>
       </>
     );
