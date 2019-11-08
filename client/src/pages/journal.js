@@ -66,13 +66,15 @@ class Journal extends Component {
         return (
             <PageWrapper>
                 <h1>Profile</h1>
-                <p>{profile.nickname}</p>
+                <p>Name : {profile.name}</p>
+                <p>Nick Name : {profile.nickname}</p>
+                <p>Email : {profile.email}</p>
                 <img
-                    style={{ maxWidth: 50, maxHeight: 50 }}
+                    style={{ maxWidth: 200, maxHeight: 200 }}
                     src={profile.picture}
                     alt="profile pic"
                 />
-                <pre>{JSON.stringify(profile, null, 2)}</pre>
+               
                 <div className="container pt-3">
                     <div className="journal-entry">
                         <h1>Personal Journal</h1>
