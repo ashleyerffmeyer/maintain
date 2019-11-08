@@ -36,7 +36,7 @@ class App extends Component {
                 : <Redirect to="/" />
             }}
           />
-          <Route path='/profile' exact name='profile' component={Profile} /> 
+          <Route path='/profile' exact name='profile' component={Profile} />
         </div>
       </>
     );
