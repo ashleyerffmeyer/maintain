@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 const JournalModel = new Schema(
     {
         title: { type: String, required: true },
-        synopsis: String,
+        synopsis: { type: String, required: true },
         date: { type: Date, default: Date.now }
     });
 
