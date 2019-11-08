@@ -1,7 +1,8 @@
 import auth0 from "auth0-js";
 
 const { host, protocol } = window.location
-const oauthCallbackUrl = protocol+'//'+host+'/callback'
+const homepage = protocol + '//' + host
+const oauthCallbackUrl = homepage + '/callback'
 
 export default class Auth {
   constructor(history) {
@@ -57,7 +58,7 @@ export default class Auth {
     this.userProfile = null;
     this.auth0.logout({
       clientID: process.env.REACT_APP_AUTH0_CLIENT_ID,
-      returnTo: "http://localhost:3000"
+      returnTo: homepage
     });
   };
 

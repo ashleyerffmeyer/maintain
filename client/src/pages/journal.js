@@ -61,12 +61,10 @@ class Journal extends Component {
         }
     };
     render() {
-        const {  logout } = this.props.auth;
         const { profile } = this.state;
         if (!profile) return null;
         return (
             <PageWrapper>
-                <button onClick={logout}>Log Out</button>
                 <h1>Profile</h1>
                 <p>{profile.nickname}</p>
                 <img
