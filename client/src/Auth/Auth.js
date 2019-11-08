@@ -1,5 +1,10 @@
 import auth0 from "auth0-js";
 
+const { host, protocol } = window.location
+const oauthCallbackUrl = protocol+'//'+host+'/callback'
+
+console.log(oauthCallbackUrl)
+
 export default class Auth {
   constructor(history) {
     this.history = history;
@@ -7,7 +12,7 @@ export default class Auth {
     this.auth0 = new auth0.WebAuth({
       domain: process.env.REACT_APP_AUTH0_DOMAIN,
       clientID: process.env.REACT_APP_AUTH0_CLIENT_ID,
-      redirectUri: process.env.REACT_APP_AUTH0_CALLBACK_URL,
+      redirectUri: oauthCallbackUrl,
       responseType: "token id_token",
       scope: "openid profile email"
     });
