@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import API from "../utils/API";
 import PageWrapper from '../components/PageWrapper';
 import DeleteBtn from '../components/DeleteBtn';
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import { List, ListItem } from "../components/List";
 import "./journal.css";
 import { Input, TextArea, FormBtn } from "../components/Form";
@@ -15,11 +15,11 @@ class Journal extends Component {
     };
 
     componentDidMount() {
-        this.loadJournal();
+        this.loadJournals();
     };
 
-    loadJournal = () => {
-        API.getJournal()
+    loadJournals = () => {
+        API.getJournals()
             .then(res =>
                 this.setState({ entries: res.data, title: "", synopsis: "" })
             )
@@ -36,7 +36,9 @@ class Journal extends Component {
         const { name, value } = event.target;
         this.setState({
             [name]: value
+
         });
+        console.log(this.state);
     };
 
     handleFormSubmit = event => {
@@ -46,7 +48,7 @@ class Journal extends Component {
                 title: this.state.title,
                 synopsis: this.state.synopsis
             })
-                .then(res => this.loadJournal())
+                .then(res => this.loadJournals())
                 .catch(err => console.log(err));
         }
     };
@@ -59,13 +61,13 @@ class Journal extends Component {
                         <h2>Take note of an event below</h2>
                         <form>
                             <Input
-                                name="journalTitle"
+                                name="title"
                                 value={this.state.title}
                                 onChange={this.handleInputChange}
                                 placeholder="Journal Entry Title (Required)"
                             />
                             <TextArea
-                                name="journalSynopsis"
+                                name="synopsis"
                                 value={this.state.synopsis}
                                 onChange={this.handleInputChange}
                                 placeholder="Journal Entry Synopsis (Required)"
@@ -83,15 +85,15 @@ class Journal extends Component {
                             <h2>All Journal Entries</h2>
                             {this.state.entries.length ? (
                                 <List>
-                                    {this.state.entries.map(entries => (
-                                        <ListItem key={entries._id}>
-                                            <Link to={"/journals/" + entries._id}>
-                                                <strong>
-                                                    {entries.title}
-                                                </strong>
-                                                {entries.synopsis}
-                                            </Link>
-                                            <DeleteBtn onClick={() => this.deleteJournal(entries._id)} />
+                                    {this.state.entries.map(journal => (
+                                        <ListItem key={journal._id}>
+                                            {/* <Link to={"/journals/" + journal._id}> */}
+                                            <strong>
+                                                {journal.title}
+                                            </strong>
+                                            {journal.synopsis}
+                                            {/* </Link>*/}
+                                            <DeleteBtn onClick={() => this.deleteJournal(journal._id)} />
                                         </ListItem>
                                     ))}
                                 </List>

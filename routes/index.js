@@ -14,7 +14,7 @@ const apiRoutes = require("./api");
 router.use("/api", apiRoutes);
 router.use("/api/health", health);
 router.use("/api/auth", auth);
-router.use("/api/journal", journal);
+//router.use("/api/journal", journal);
 router.route('/auth/google')
     .post(passport.authenticate('google-token', { session: false }), function (req, res, next) {
         if (!req.user) {
