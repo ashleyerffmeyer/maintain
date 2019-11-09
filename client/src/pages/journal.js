@@ -39,7 +39,7 @@ class Journal extends Component {
 
     deleteJournal = id => {
         API.deleteJournal(id)
-            .then(res => this.loadJournal())
+            .then(res => this.loadJournals())
             .catch(err => console.log(err));
     };
 
@@ -110,12 +110,9 @@ class Journal extends Component {
                                 <List>
                                     {this.state.entries.map(journal => (
                                         <ListItem key={journal._id}>
-                                            {/* <Link to={"/journals/" + journal._id}> */}
-                                            <strong>
-                                                {journal.title}
-                                            </strong>
-                                            {journal.synopsis}
-                                            {/* </Link>*/}
+                                            <p><strong>{journal.title}</strong></p>
+                                            <p>{journal.date}</p>
+                                            <p>{journal.synopsis}</p>
                                             <DeleteBtn onClick={() => this.deleteJournal(journal._id)} />
                                         </ListItem>
                                     ))}
@@ -125,16 +122,6 @@ class Journal extends Component {
                                 )}
                         </div>
                     </div>
-
-                    {/*  <div className="contentarea">
-                    <h2>Image Capture</h2>
-                    <p>Add any images below that are associated with this journal entry</p>
-                    <div className="camera">
-                        <button id="startbutton">Take photo</button>
-                    </div>
-                    <canvas id="canvas"></canvas>
-                    <div className="output"><img id="photo" alt="The screen capture will appear in this box."></img></div>
-    </div>*/}
                 </div>
             </PageWrapper>
         );
