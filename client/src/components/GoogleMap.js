@@ -108,7 +108,7 @@ class GoogleMap extends Component {
     getMarkers(location) {
         var request = {
             location: this.state.coords,
-            radius: '2000',
+            radius: '52,800',
             type: location.search_term
         }
         var service = new google.maps.places.PlacesService(map);
