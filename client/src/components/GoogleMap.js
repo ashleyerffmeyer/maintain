@@ -1,21 +1,48 @@
-
 import React, { Component } from 'react';
 const API_KEY = 'AIzaSyDLQVZcxQF9DGhPlYxExI3nrOr9wTC9Mqg'
 
-let map, infoWindow, google;
+let map, google;
 
 class GoogleMap extends Component {
     constructor(props) {
         super(props);
         this.state = {
             is_loading: true,
-            center: {
-                lat: 59.95,
-                lng: 30.33
+            coords: {
+                lat: 38.899648,
+                lng: -94.726123
             },
-            zoom: 9
+            zoom: 13,
+            locations: [
+                {
+                    type: 'You',
+                    color: 'pink',
+                    search_term: null
+                },
+                {
+                    type: 'Hospital',
+                    color: 'green',
+                    search_term: 'hospital'
+                },
+                {
+                    type: 'Police',
+                    color: 'blue',
+                    search_term: 'police'
+                },
+                {
+                    type: 'Lawyer',
+                    color: 'yellow',
+                    search_term: 'lawyer'
+                },
+                {
+                    type: 'Misc',
+                    color: 'purple',
+                    search_term: null
+                }
+            ]
         };
         this.getPlaces = this.getPlaces.bind(this);
+        this.getMarkers = this.getMarkers.bind(this);
     }
 
     componentDidMount() {
@@ -26,80 +53,115 @@ class GoogleMap extends Component {
     getPlaces(res) {
         google = window.google;
         map = new google.maps.Map(document.getElementById('map'), {
-            center: { lat: -34.397, lng: 150.644 },
-            zoom: 13
+            center: this.state.coords,
+            zoom: this.state.zoom
         });
-        infoWindow = new google.maps.InfoWindow();
         if (navigator.geolocation) {
             let self = this;
             navigator.geolocation.getCurrentPosition(function (position) {
-                var pos = {
+                var coords = {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 };
-                infoWindow.setPosition(pos);
-                infoWindow.setContent('You are here.');
-                infoWindow.open(map);
-                map.setCenter(pos);
-
-
-                var request = {
-                    location: pos,
-                    radius: '2000',
-                    type: 'hospital'
+                self.setState(coords);
+                let result = {
+                    geometry: {
+                        location: coords
+                    },
+                    name: 'You are here!'
                 }
-                var service = new google.maps.places.PlacesService(map);
+                self.createMarker(result, 'pink', true)
+                map.setCenter(coords);
 
-                service.nearbySearch(request, function (results, status) {
-                    console.log(results)
-                    if (status === google.maps.places.PlacesServiceStatus.OK) {
-                        for (var i = 0; i < results.length; i++) {
-                            self.createMarker(results[i].geometry.location, results[i].name, true);
-                        }
-                    }
-                });
+                self.state.locations.forEach(location => {
+                    if (location.search_term) self.getMarkers(location);
+                })
             }, function () {
-                self.handleLocationError(true, infoWindow, map.getCenter());
+                self.handleLocationError(true);
             });
         } else {
-            this.handleLocationError(false, infoWindow, map.getCenter());
+            this.handleLocationError(false);
+
+            this.state.locations.forEach(location => {
+                if (location.search_term) this.getMarkers(location);
+            })
         }
 
         new google.maps.places.Autocomplete(document.getElementById('places_search'), {
-            // types: ['lawyer', 'police', 'courthouse', 'doctor', 'hospital', 'police'],
             types: ['establishment'],
             componentRestrictions: { country: 'us' },
-            bounds: map.getBounds()
         });
+
+        this.setState({ is_loading: false })
     }
 
-    handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
+    handleLocationError(browserHasGeolocation) {
+        console.error(browserHasGeolocation ?
             'Error: The Geolocation service failed.' :
-            'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
+            'Error: Your browser doesn\'t support geolocation.')
     }
 
     locationSearch() {
         console.log('locationSearch()')
-        console.log(map.getBounds())
     }
 
-    createMarker(position, title, isPark = false) {
-        var icon = isPark ? 'http://maps.google.com/mapfiles/ms/icons/green-dot.png' : 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
-        new google.maps.Marker({
-            position: position,
-            map: map,
-            title: title,
-            icon: icon
+    getMarkers(location) {
+        var request = {
+            location: this.state.coords,
+            radius: '2000',
+            type: location.search_term
+        }
+        var service = new google.maps.places.PlacesService(map);
+
+        let self = this;
+        service.nearbySearch(request, function (results, status) {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                results.forEach(result => {
+                    self.createMarker(result, location.color)
+                })
+            }
         });
+    }
+
+    createMarker(result, color = 'green', open_on_load = false) {
+        if (result.geometry) {
+            var icon = `http://maps.google.com/mapfiles/ms/icons/${color}-dot.png`;
+            let marker = new google.maps.Marker({
+                position: result.geometry.location,
+                map: map,
+                title: result.name,
+                icon: icon
+            });
+            // TODO: get directions link
+            marker.addListener('click', function () {
+                new google.maps.InfoWindow({
+                    content: (result.plus_code) ? result.name + '<br /> <a href="https://google.com/maps/place/">Get Directions</a>' : result.name
+                }).open(map, marker);
+            });
+            if (open_on_load) {
+                google.maps.event.trigger(marker, 'click');
+            }
+        }
     }
 
     render() {
         return (
             <div className="">
-                <input id="places_search" name="places_search" placeholder="Search.." style={{ 'display': 'block' }} />
+                <div className="d-flex container justify-content-between flex-column pt-3 pb-3" style={{ 'top': '0' }}>
+                    <div className="d-flex justify-content-around pb-3">
+                        {
+                            this.state.locations.map(location => {
+                                return (
+                                    <span className="btn btn-outline-secondary" key={location.type}>{location.type} - <img src={`http://maps.google.com/mapfiles/ms/icons/${location.color}-dot.png`} /></span>
+                                )
+                            })
+                        }
+                    </div>
+                    {/* <div className="d-flex">
+                        <input id="places_search" className="form-control" name="places_search" placeholder="Search.." style={{ 'display': 'block' }} />
+                        <div className="btn btn-primary ml-3" onClick={this.locationSearch}>Find!</div>
+                    </div> */}
+                </div>
                 <div id="map" style={{ 'height': '550px' }}></div>
             </div>
         );
