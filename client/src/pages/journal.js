@@ -16,6 +16,8 @@ class Journal extends Component {
         error: ""
     };
 
+    
+
     componentDidMount() {
         this.loadUserProfile();
     };
