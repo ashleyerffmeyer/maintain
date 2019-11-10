@@ -41,20 +41,20 @@ export default class Auth {
       authResult.expiresIn * 1000 + new Date().getTime()
     );
 
-    localStorage.setItem("access_token", authResult.accessToken);
-    localStorage.setItem("id_token", authResult.idToken);
-    localStorage.setItem("expires_at", expiresAt);
+    sessionStorage.setItem("access_token", authResult.accessToken);
+    sessionStorage.setItem("id_token", authResult.idToken);
+    sessionStorage.setItem("expires_at", expiresAt);
   };
 
   isAuthenticated() {
-    const expiresAt = JSON.parse(localStorage.getItem("expires_at"));
+    const expiresAt = JSON.parse(sessionStorage.getItem("expires_at"));
     return new Date().getTime() < expiresAt;
   }
 
   logout = () => {
-    localStorage.removeItem("access_token");
-    localStorage.removeItem("id_token");
-    localStorage.removeItem("expires_at");
+    sessionStorage.removeItem("access_token");
+    sessionStorage.removeItem("id_token");
+    sessionStorage.removeItem("expires_at");
     this.userProfile = null;
     this.auth0.logout({
       clientID: process.env.REACT_APP_AUTH0_CLIENT_ID,
@@ -63,7 +63,7 @@ export default class Auth {
   };
 
   getAccessToken = () => {
-    const accessToken = localStorage.getItem("access_token");
+    const accessToken = sessionStorage.getItem("access_token");
     if (!accessToken) {
       throw new Error("No access token found.");
     }
