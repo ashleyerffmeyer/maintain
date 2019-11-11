@@ -16,7 +16,7 @@ class Journal extends Component {
         error: ""
     };
 
-    
+
 
     componentDidMount() {
         this.loadUserProfile();
@@ -56,7 +56,7 @@ class Journal extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        if (this.state.title && this.state.synopsis) {
+        if (this.state.synopsis) {
             API.saveJournal({
                 title: this.state.title,
                 synopsis: this.state.synopsis
@@ -89,7 +89,7 @@ class Journal extends Component {
                                 name="title"
                                 value={this.state.title}
                                 onChange={this.handleInputChange}
-                                placeholder="Journal Entry Title (Required)"
+                                placeholder="Journal Entry Title"
                             />
                             <TextArea
                                 name="synopsis"
@@ -98,7 +98,7 @@ class Journal extends Component {
                                 placeholder="Journal Entry Synopsis (Required)"
                             />
                             <FormBtn
-                                disabled={!(this.state.title && this.state.synopsis)}
+                                disabled={!(this.state.synopsis)}
                                 onClick={this.handleFormSubmit}
                             >
                                 Add Journal Entry
@@ -112,8 +112,8 @@ class Journal extends Component {
                                 <List>
                                     {this.state.entries.map(journal => (
                                         <ListItem key={journal._id}>
+                                            <p><strong>Journal Entry Saved @ </strong>{journal.date}</p>
                                             <p><strong>{journal.title}</strong></p>
-                                            <p>{journal.date}</p>
                                             <p>{journal.synopsis}</p>
                                             <DeleteBtn onClick={() => this.deleteJournal(journal._id)} />
                                         </ListItem>

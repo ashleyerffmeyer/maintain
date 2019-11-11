@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 // Createing new schema
 const JournalModel = new Schema(
     {
-        title: { type: String, required: true },
+        title: { type: String },
         synopsis: { type: String, required: true },
         date: { type: Date, default: Date.now }
     });
