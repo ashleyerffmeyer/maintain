@@ -14,26 +14,25 @@ footer {
     /* identical to box height */
     text-align: center;
 }
-
+​
 @media (min-width:1025px) {
-
+​
     footer {
         margin-top: 0px;
-      position: absolute;
-      height: 63px;
-      width: 100vw;
-      left: 0px;
-      top: 1200px;
-      right: 0px;
-      bottom: 0px;
-      background: #545353;
-      color: #ffffff;
-      font-family: The Girl Next Door;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 9px;
-      line-height: 17px;
-      /* identical to box height */
-      text-align: center;
+        height: 63px;
+        width: 100vw;
+        left: 0px;
+        top: 1200px;
+        right: 0px;
+        bottom: 0px;
+        background: #545353;
+        color: #ffffff;
+        font-family: The Girl Next Door;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 9px;
+        line-height: 17px;
+        /* identical to box height */
+        text-align: center;
   }
 }
