@@ -34,11 +34,11 @@ class GoogleMap extends Component {
                     color: 'yellow',
                     search_term: 'lawyer'
                 },
-                {
-                    type: 'Misc',
-                    color: 'purple',
-                    search_term: null
-                }
+                //{
+                //    type: 'Misc',
+                //    color: 'purple',
+                //    search_term: null
+                //}
             ]
         };
         this.getPlaces = this.getPlaces.bind(this);
@@ -132,10 +132,9 @@ class GoogleMap extends Component {
                 title: result.name,
                 icon: icon
             });
-            // TODO: get directions link
             marker.addListener('click', function () {
                 new google.maps.InfoWindow({
-                    content: (result.plus_code) ? result.name + '<br /> <a href="https://google.com/maps/place/">Get Directions</a>' : result.name
+                    content: (result.plus_code) ? result.name + '<br /> <a href="https://google.com/maps/dir//' + result.geometry.location.lat() + ',' + result.geometry.location.lng() + '">Get Directions</a>' : result.name
                 }).open(map, marker);
             });
             if (open_on_load) {
@@ -152,15 +151,11 @@ class GoogleMap extends Component {
                         {
                             this.state.locations.map(location => {
                                 return (
-                                    <span className="btn btn-outline-secondary" key={location.type}>{location.type} - <img src={`http://maps.google.com/mapfiles/ms/icons/${location.color}-dot.png`} /></span>
+                                    <span className="btn btn-outline-secondary" key={location.type}>{location.type} <img src={`http://maps.google.com/mapfiles/ms/icons/${location.color}-dot.png`} /></span>
                                 )
                             })
                         }
                     </div>
-                    {/* <div className="d-flex">
-                        <input id="places_search" className="form-control" name="places_search" placeholder="Search.." style={{ 'display': 'block' }} />
-                        <div className="btn btn-primary ml-3" onClick={this.locationSearch}>Find!</div>
-                    </div> */}
                 </div>
                 <div id="map" style={{ 'height': '550px' }}></div>
             </div>
@@ -178,3 +173,4 @@ function loadJS(src) {
     script.async = true;
     ref.parentNode.insertBefore(script, ref);
 }
+Collapse
