@@ -2,11 +2,14 @@ import React from "react";
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Carousel from 'react-bootstrap/Carousel'
-
-import slideone from '../assets/care-caregiver-deal-45842.jpg'
-import slidetwo from '../assets/woman-holding-flower.jpg'
-import slidethree from '../assets/abuse-adult-anger-568021.jpg'
+import Carousel from 'react-bootstrap/Carousel';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import Mags from '../assets/mags.png';
+import Ash from '../assets/AshleyErffmeyer.jpeg'
+import slideone from '../assets/care-caregiver-deal-45842.jpg';
+import slidetwo from '../assets/woman-holding-flower.jpg';
+import slidethree from '../assets/abuse-adult-anger-568021.jpg';
 
 import "./home.css";
 
@@ -17,7 +20,7 @@ function Home() {
 
         <div>
             <Header />
-            <div className="container pt-3">
+            <div className="mainlayout">
                 <div className="missionstatement">
                     {/* This is needed for the parralax */}
                     <h2>Our Mission</h2>
@@ -30,10 +33,15 @@ function Home() {
                 </div>
                 <div className="pimg2">
                     {/* This is needed for the parralax */}
+                    <div className="ptext">
+                        <span className="border">
+                            Further Information
+                        </span>
+                    </div>
 
                 </div>
 
-                <div className="slideshow p-3 mb-5">
+                <div className="slideshow">
                     {/* This is needed for the parralax  */}
                     <h2>Information</h2>
                     <Carousel>
@@ -41,6 +49,8 @@ function Home() {
                             <img
                                 className="d-block w-100"
                                 src={slideone}
+                                height={600}
+                                width={350}
                                 alt="First slide"
                             />
                             <Carousel.Caption>
@@ -52,6 +62,8 @@ function Home() {
                             <img
                                 className="d-block w-100"
                                 src={slidetwo}
+                                height={600}
+                                width={350}
                                 alt="Third slide"
                             />
 
@@ -64,6 +76,8 @@ function Home() {
                             <img
                                 className="d-block w-100"
                                 src={slidethree}
+                                height={600}
+                                width={350}
                                 alt="Third slide"
                             />
 
@@ -75,7 +89,90 @@ function Home() {
                     </Carousel>
                 </div>
 
-            </div>
+                <div className="pimg3">
+                    {/* This is needed for the parralax */}
+
+                    <div class="ptext">
+                        <span class="border trans">
+                            About Us
+                        </span>
+                    </div>
+
+                </div>
+                <div className="AboutUs">
+                    <h2>Meet Us</h2>
+                    <div className="container-fluid">
+                        <div className= "row">
+                        
+
+
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Img variant="top" src={Mags} />
+                        <Card.Body>
+                            <Card.Title>Magdalene James</Card.Title>
+                            <Card.Text>
+                                Some quick example text to build on the card title and make up the bulk of
+                                the card's content.
+                            </Card.Text>
+                            <Button variant="primary">Go somewhere</Button>
+                        </Card.Body>
+                    </Card>
+                    <br></br>
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Img variant="top" src={Ash} />
+                        <Card.Body>
+                            <Card.Title>Ashley Erffmeyer</Card.Title>
+                            <Card.Text>
+                                Some quick example text to build on the card title and make up the bulk of
+                                the card's content.
+                            </Card.Text>
+                            <Button variant="primary">Go somewhere</Button>
+                        </Card.Body>
+                    </Card>
+                    <br></br>
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Img variant="top" src={Mags} />
+                        <Card.Body>
+                            <Card.Title>Card Title</Card.Title>
+                            <Card.Text>
+                                Some quick example text to build on the card title and make up the bulk of
+                                the card's content.
+                            </Card.Text>
+                            <Button variant="primary">Go somewhere</Button>
+                        </Card.Body>
+                    </Card>
+                    </div>
+                    <br></br>
+                    <div className= "row">
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Img variant="top" src={Mags} />
+                        <Card.Body>
+                            <Card.Title>Card Title</Card.Title>
+                            <Card.Text>
+                                Some quick example text to build on the card title and make up the bulk of
+                                the card's content.
+                            </Card.Text>
+                            <Button variant="primary">Go somewhere</Button>
+                        </Card.Body>
+                    </Card>
+                    <br></br>
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Img variant="top" src={Mags} />
+                        <Card.Body>
+                            <Card.Title>Card Title</Card.Title>
+                            <Card.Text>
+                                Some quick example text to build on the card title and make up the bulk of
+                                the card's content.
+                            </Card.Text>
+                            <Button variant="primary">Go somewhere</Button>
+                        </Card.Body>
+                    </Card>
+                    </div>
+                    </div>
+
+                </div>
+                </div>
+
             <Footer />
         </div>
     );

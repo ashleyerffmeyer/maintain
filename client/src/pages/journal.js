@@ -70,7 +70,10 @@ class Journal extends Component {
         if (!profile) return null;
         return (
             <PageWrapper>
-                <h1>Profile</h1>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-6">
+                        <h1>Profile</h1>
                 <p>Name : {profile.name}</p>
                 <p>Nick Name : {profile.nickname}</p>
                 <p>Email : {profile.email}</p>
@@ -79,8 +82,9 @@ class Journal extends Component {
                     src={profile.picture}
                     alt="profile pic"
                 />
-
-                <div className="container pt-3">
+                        </div>
+                        <div className="col-md-6">
+                        <div className="container pt-3">
                     <div className="journal-entry">
                         <h1>Personal Journal</h1>
                         <h2>Take note of an event below</h2>
@@ -125,6 +129,15 @@ class Journal extends Component {
                         </div>
                     </div>
                 </div>
+
+                        </div>
+                    </div>
+                    
+                </div>
+        
+               
+
+               
             </PageWrapper>
         );
     }

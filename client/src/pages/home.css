@@ -1,6 +1,13 @@
-.container {
-    position: relative;
-    top: 150px;
+.mainlayout{
+    margin-left:40px;
+    padding-left: 40px;
+    margin-right:40px;
+    padding-right: 40px;
+}
+
+.container .pt-3{
+    margin-left: 0px;
+    padding-left: 0px;
 }
 .missionstatement {
     position: relative;
@@ -8,13 +15,77 @@
     margin-top: 20px;
 }
 
+.pimg1, .pimg2, .pimg3{
+    position:relative;
+    opacity:0.70;
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
+  
+    /*
+      fixed = parallax
+      scroll = normal
+    */
+    background-attachment:fixed;
+  }
+
+.pimg2{
+    background-image: url('../assets/adorable-baby-babysitter-1257110.jpg');
+    min-height: 400px;
+}
+
+.pimg3{
+    background-image: url('../assets/anchor-close-up-fashion-1564149.jpg');
+    min-height: 400px;
+}
+
+.ptext{
+    position:absolute;
+    top:50%;
+    width:100%;
+    text-align:center;
+    color:#000;
+    font-size:27px;
+    letter-spacing:8px;
+    text-transform:uppercase;
+  }
+
+  .ptext .border{
+    background-color: #F1A585;
+    opacity: 0.75;
+    color:#fff;
+    padding:20px;
+  }
+
 .slideshow {
     
-    height: 409px;
+    height: 700px;
     left: 0px;
     top: 450px;
-    background: #FCD8D8;
+    /* background: #FCD8D8; */
 }
+
+.personimg1{
+    background-image: url('../assets/mags.png');
+    width: 240px;
+    height: 240px;
+  
+  
+}
+
+[class*="row"] {
+	margin-bottom: 1em;
+  justify-content: center;
+}
+
+[class*="col-"] {
+	background: #efefef;
+	border: 1px solid #ddd;
+	padding-top: .75rem;
+	padding-bottom: .75rem;
+	width: 100%;
+}
+
 
 h2 {
     font-family: Gorditas;
@@ -32,7 +103,7 @@ h2 {
     top: 0px;
 
     }
-
+/* 
     .carousel .slide{
         width: 300px;
         height: 300px;
@@ -42,5 +113,5 @@ h2 {
         margin: 0 auto;
         width: 400px;
         height: 200px;
-    }
+    } */
 }

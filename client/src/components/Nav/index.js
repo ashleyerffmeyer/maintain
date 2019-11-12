@@ -13,9 +13,9 @@ function Nav (props) {
     return (
         <div>
             <div className="navbars">
-                <a href="/">
+               
                     <img className="MaintainTransLogo" src={logo} alt="Maintain Logo" />
-                </a>
+                
 
                 <div className="navigation">
                     <a className="active home" href="/"><img className="homeicon home" src={house} alt="maps" />Home</a>

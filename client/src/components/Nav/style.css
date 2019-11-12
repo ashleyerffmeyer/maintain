@@ -5,7 +5,7 @@ html {
 .logbutton{
     position: absolute;
     z-index: 10;
-    right: 80%;
+    left: 75%;
 }
 
 .navhead {
@@ -93,8 +93,7 @@ html {
         position: absolute;
         width: 146px;
         height: 150px;
-        left: 0px;
-        top: 0px;
+        left: 10px;
         z-index: 10;
     }
     a:hover{
@@ -138,7 +137,7 @@ html {
         color: #FFFFFF;
         z-index: 10;
     }
-    a.user {
+    a.menu {
         position: absolute;
         width: 127px;
         height: 64px;
@@ -149,13 +148,13 @@ html {
         box-sizing: border-box;
         font-style: normal;
         font-weight: normal;
-        font-size: 24px;
+        font-size: 18px;
         line-height: 44px;
         text-align: center;
         color: #FFFFFF;
         z-index: 10;
     }
-    a.menu {
+    a.user {
         position: absolute;
         width: 127px;
         height: 64px;
@@ -166,7 +165,7 @@ html {
         box-sizing: border-box;
         font-style: normal;
         font-weight: normal;
-        font-size: 18px;
+        font-size: 24px;
         line-height: 33px;
         text-align: center;
         color: #FFFFFF;

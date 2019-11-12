@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Gorditas|The+Girl+Next+Door&display=swap');
 
+body, html{
+    height:100%;
+    margin:0;
+    color:#666;
+  }
+
 .hero {
     width: 100%;
 }
@@ -7,11 +13,28 @@
 .friendsmainpic {
     /* position: absolute; */
     width: 100%;
-    height: 167px;
-    left: 0px;
-    top: 59px;
+   
+    /* left: 0px;
+    top: 59px; */
     z-index: -1;
+
+    /* Adding Parralax related styling below */
+
+    position:relative;
+    opacity:0.70;
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
+  
+    /*
+      fixed = parallax
+      scroll = normal
+    */
+    background-attachment:fixed;
+    min-height:100%;
 }
+
+
 
 .mainheader {
     position: absolute;
@@ -56,10 +79,12 @@
 
 .caption3 {
     position: absolute;
-    width: 121px;
+    width: 221px;
     height: 21px;
-    left: 248px;
+    left: 48px;
     top: 168px;
+    
+   
 }
 
 /* Media query */
@@ -132,7 +157,7 @@
     position: absolute;
     height: 91px;
     left: 983px;
-    top: 257px;
+    top: 357px;
     animation-duration: 10s;
     animation-name: fadein;
 }
