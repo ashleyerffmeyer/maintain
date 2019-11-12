@@ -173,4 +173,3 @@ function loadJS(src) {
     script.async = true;
     ref.parentNode.insertBefore(script, ref);
 }
-Collapse
