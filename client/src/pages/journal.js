@@ -120,10 +120,10 @@ class Journal extends Component {
                                 <List>
                                     {this.state.entries.map(journal => (
                                         <ListItem key={journal._id}>
+                                            <DeleteBtn onClick={() => this.deleteJournal(journal._id)} />
                                             <p><strong>Journal Entry Saved @ </strong>{journal.date}</p>
                                             <p><strong>{journal.title}</strong></p>
                                             <p>{journal.synopsis}</p>
-                                            <DeleteBtn onClick={() => this.deleteJournal(journal._id)} />
                                         </ListItem>
                                     ))}
                                 </List>
