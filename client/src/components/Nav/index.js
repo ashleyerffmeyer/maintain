@@ -4,7 +4,6 @@ import ProfileButton from "../ProfileButton";
 import logo from "../../assets/maintainlogo.png";
 import house from "../../assets/house.png";
 import map from "../../assets/placeholder.png";
-import user from "../../assets/user.png";
 import menu from "../../assets/menu.png";
 
 import "./style.css";

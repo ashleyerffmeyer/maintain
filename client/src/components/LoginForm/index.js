@@ -8,20 +8,20 @@ function LoginForm() {
     <div>
 
       <div className="profile login">
-        <img class="loginicon" src={avatar} alt="avatar"></img>
+        <img className="loginicon" src={avatar} alt="avatar"></img>
         <form>
           <div className="login-form">
-            <label class="emailtext" for="email">Email</label>
-            <input type="email" class="email-input" placeholder="Enter email" />
+            <label className="emailtext" for="email">Email</label>
+            <input type="email" className="email-input" placeholder="Enter email" />
           </div>
           <div className="login-form">
-            <label class="passwordtext" for="password">Password</label>
-            <input type="password" class="password-input" placeholder="Password" />
+            <label className="passwordtext" for="password">Password</label>
+            <input type="password" className="password-input" placeholder="Password" />
           </div>
-          <div class="login-form form-check">
-            <p class="regtext"> <a href="/">No account? Create one here!</a></p>
+          <div className="login-form form-check">
+            <p className="regtext"> <a href="/">No account? Create one here!</a></p>
           </div>
-          <button type="submit" class="btn btn-primary submitbtn">Login</button>
+          <button type="submit" className="btn btn-primary submitbtn">Login</button>
         </form>
       </div>
 

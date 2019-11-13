@@ -151,7 +151,9 @@ class GoogleMap extends Component {
                         {
                             this.state.locations.map(location => {
                                 return (
-                                    <span className="btn btn-outline-secondary" key={location.type}>{location.type} <img src={`http://maps.google.com/mapfiles/ms/icons/${location.color}-dot.png`} /></span>
+                                    <span className="btn btn-outline-secondary" key={location.type}>
+                                        {location.type} <img src={`http://maps.google.com/mapfiles/ms/icons/${location.color}-dot.png`} alt="dot" />
+                                    </span>
                                 )
                             })
                         }
