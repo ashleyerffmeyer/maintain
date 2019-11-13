@@ -60,8 +60,11 @@ class Journal extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        if (this.state.synopsis) {
+
+        const { userProfile } = this.props.auth;
+        if (this.state.synopsis && userProfile && userProfile.email) {
             API.saveJournal({
+                email: userProfile.email,
                 title: this.state.title,
                 synopsis: this.state.synopsis
             })

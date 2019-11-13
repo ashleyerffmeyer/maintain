@@ -1,15 +1,18 @@
 const router = require("express").Router();
 const journalController = require("../../controllers/Journal");
+const checkJwt = require("../api/checkJwt");
+
+
 
 // Matches with "/api/journals"
 router.route("/")
-   .get(journalController.findAll)
+   .get(checkJwt, journalController.findAll)
    .post(journalController.create);
 
 //
 
  router.route("/:email")
-    .get(journalController.findByEmail);
+    .get(checkJwt,journalController.findByEmail);
    
 
 // Matches with "/api/journals/:id"
@@ -18,5 +21,8 @@ router
     .get(journalController.findById)
     .put(journalController.update)
     .delete(journalController.remove);
+
+
+ 
 
 module.exports = router;
