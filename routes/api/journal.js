@@ -3,8 +3,14 @@ const journalController = require("../../controllers/Journal");
 
 // Matches with "/api/journals"
 router.route("/")
-    .get(journalController.findAll)
-    .post(journalController.create);
+   .get(journalController.findAll)
+   .post(journalController.create);
+
+//
+
+ router.route("/:email")
+    .get(journalController.findByEmail);
+   
 
 // Matches with "/api/journals/:id"
 router
