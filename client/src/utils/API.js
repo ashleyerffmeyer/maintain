@@ -4,7 +4,7 @@ export default {
     // Gets all entries
     getJournals: function (email) {
         if (!email) { throw Error('Email is missing...') }
-        return axios.get(`/api/journal/${email}`);
+        return axios.get(`/api/journals/${email}`);
     },
     // Gets the entry with the given id
     getJournal: function (id) {
