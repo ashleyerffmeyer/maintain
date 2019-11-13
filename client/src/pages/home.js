@@ -1,25 +1,40 @@
 import React from "react";
 
+import Nav from '../components/Nav';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Carousel from 'react-bootstrap/Carousel';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Mags from '../assets/mags.png';
-import Ash from '../assets/AshleyErffmeyer.jpeg'
+import Ash from '../assets/AshleyErffmeyer.jpeg';
+import Jenny from '../assets/Jenny_photo.png'
 import slideone from '../assets/care-caregiver-deal-45842.jpg';
 import slidetwo from '../assets/woman-holding-flower.jpg';
 import slidethree from '../assets/abuse-adult-anger-568021.jpg';
+import babysitter from '../assets/adorable-baby-babysitter-1257110.jpg';
+import friends from '../assets/friends.jpg';
 
 import "./home.css";
 
-
-
 function Home() {
+    console.log(friends)
     return (
-
         <div>
-            <Header />
+            <div className="pimg1" style={{ backgroundImage: `url(${friends})` }}>
+                
+                        <div className="hero">
+
+                            <h1 className="mainheader">Maintain</h1>
+                            <h3 className="caption1" id="cap">...your safety</h3>
+                            <h3 className="caption2" id="cap">...your strategy</h3>
+                            <h3 className="caption3" id="cap">...your health</h3>
+                        </div>
+                    
+                
+            </div>
+
+            {/* <Header /> */}
             <div className="mainlayout">
                 <div className="missionstatement">
                     {/* This is needed for the parralax */}
@@ -31,7 +46,7 @@ function Home() {
                         >No domestic violence victim should feel stuck in a poor quality of life.
                         </p>
                 </div>
-                <div className="pimg2">
+                <div className="pimg2" style={{ backgroundImage: `url(${babysitter})` }}>
                     {/* This is needed for the parralax */}
                     <div className="ptext">
                         <span className="border">
@@ -102,76 +117,76 @@ function Home() {
                 <div className="AboutUs">
                     <h2>Meet Us</h2>
                     <div className="container-fluid">
-                        <div className= "row">
-                        
+                        <div className="row">
 
 
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src={Mags} />
-                        <Card.Body>
-                            <Card.Title>Magdalene James</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
+
+                            <Card style={{ width: '18rem' }}>
+                                <Card.Img variant="top" src={Mags} />
+                                <Card.Body>
+                                    <Card.Title>Magdalene James</Card.Title>
+                                    <Card.Text>
+                                        Some quick example text to build on the card title and make up the bulk of
+                                        the card's content.
                             </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
-                        </Card.Body>
-                    </Card>
-                    <br></br>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src={Ash} />
-                        <Card.Body>
-                            <Card.Title>Ashley Erffmeyer</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
+                            <Card.Link href="#">Card Link</Card.Link>
+                                </Card.Body>
+                            </Card>
+                            <br></br>
+                            <Card style={{ width: '18rem' }}>
+                                <Card.Img variant="top" src={Ash} />
+                                <Card.Body>
+                                    <Card.Title>Ashley Erffmeyer</Card.Title>
+                                    <Card.Text>
+                                        Some quick example text to build on the card title and make up the bulk of
+                                        the card's content.
                             </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
-                        </Card.Body>
-                    </Card>
-                    <br></br>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src={Mags} />
-                        <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
+                            <Card.Link href="#">Card Link</Card.Link>
+                                </Card.Body>
+                            </Card>
+                            <br></br>
+                            <Card style={{ width: '18rem' }}>
+                                <Card.Img variant="top" src={Jenny} />
+                                <Card.Body>
+                                    <Card.Title>Card Title</Card.Title>
+                                    <Card.Text>
+                                        Some quick example text to build on the card title and make up the bulk of
+                                        the card's content.
                             </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
-                        </Card.Body>
-                    </Card>
-                    </div>
-                    <br></br>
-                    <div className= "row">
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src={Mags} />
-                        <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
+                            <Card.Link href="#">Card Link</Card.Link>
+                                </Card.Body>
+                            </Card>
+                        </div>
+                        <br></br>
+                        <div className="row">
+                            <Card style={{ width: '18rem' }}>
+                                <Card.Img variant="top" src={Mags} />
+                                <Card.Body>
+                                    <Card.Title>Card Title</Card.Title>
+                                    <Card.Text>
+                                        Some quick example text to build on the card title and make up the bulk of
+                                        the card's content.
                             </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
-                        </Card.Body>
-                    </Card>
-                    <br></br>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src={Mags} />
-                        <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
+                            <Card.Link href="#">Card Link</Card.Link>
+                                </Card.Body>
+                            </Card>
+                            <br></br>
+                            <Card style={{ width: '18rem' }}>
+                                <Card.Img variant="top" src={Mags} />
+                                <Card.Body>
+                                    <Card.Title>Card Title</Card.Title>
+                                    <Card.Text>
+                                        Some quick example text to build on the card title and make up the bulk of
+                                        the card's content.
                             </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
-                        </Card.Body>
-                    </Card>
-                    </div>
+                            <Card.Link href="#">Card Link</Card.Link>
+                                </Card.Body>
+                            </Card>
+                        </div>
                     </div>
 
                 </div>
-                </div>
+            </div>
 
             <Footer />
         </div>

@@ -1,11 +1,22 @@
-html {
-
+.logbutton {
+    box-shadow: 3px 4px 0px 0px #899599;
+    background: linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+    background-color: #ededed;
+    border-radius: 15px;
+    border: 1px solid #d6bcd6;
+    cursor: pointer;
+    color: #3a8a9e;
+    font-family: Arial;
+    font-size: 17px;
+    padding: 7px 25px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #e1e2ed;
+    position: absolute;
 }
 
-.logbutton{
-    position: absolute;
-    z-index: 10;
-    left: 75%;
+.logbutton:hover {
+    background: linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+    background-color: #bab1ba;
 }
 
 .navhead {
@@ -25,10 +36,12 @@ html {
     top: 14px;
     background: #FEF0F0;
 }
+
 .navigation a {
     font-family: The Girl Next Door;
     /* line-height: 44px; */
 }
+
 .searchicon {
     width: 61px;
     height: 65px;
@@ -78,7 +91,6 @@ html {
 
 @media (min-width:1025px) {
     /* hi-res laptops and desktops */
-
     .navhead {
         display: none;
     }
@@ -96,11 +108,9 @@ html {
         left: 10px;
         z-index: 10;
     }
-    a:hover{
-        background-color: #545353;
+    a:hover {
+        background-color: #ffffff;
         opacity: 0.55;
-        
-        
     }
     a.home {
         font-size: 24px;
@@ -183,9 +193,14 @@ html {
     .menuicon {
         display: none;
     }
-    
     .container {
         position: relative;
         top: 0px;
+    }
+    .logbutton {
+        position: absolute;
+        z-index: 10;
+        left: 20%;
+        top: 25px;
     }
 }
