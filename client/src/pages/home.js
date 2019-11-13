@@ -107,8 +107,8 @@ function Home() {
                 <div className="pimg3">
                     {/* This is needed for the parralax */}
 
-                    <div class="ptext">
-                        <span class="border trans">
+                    <div className="ptext">
+                        <span className="border trans">
                             About Us
                         </span>
                     </div>

@@ -23,11 +23,15 @@ class Journal extends Component {
     };
 
     loadJournals = () => {
-        API.getJournals()
-            .then((res) =>
-                this.setState({ entries: res.data, title: "", synopsis: "" })
-            )
-            .catch(err => console.log(err));
+        const { userProfile } = this.props.auth;
+
+        if (userProfile && userProfile.email) {
+            API.getJournals(userProfile.email)
+                .then((res) =>
+                    this.setState({ entries: res.data, title: "", synopsis: "" })
+                )
+                .catch(err => console.log(err));
+        }
     };
 
     loadUserProfile() {

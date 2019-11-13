@@ -2,8 +2,9 @@ import axios from "axios";
 
 export default {
     // Gets all entries
-    getJournals: function () {
-        return axios.get("/api/journals");
+    getJournals: function (email) {
+        if (!email) { throw Error('Email is missing...') }
+        return axios.get(`/api/journal/${email}`);
     },
     // Gets the entry with the given id
     getJournal: function (id) {

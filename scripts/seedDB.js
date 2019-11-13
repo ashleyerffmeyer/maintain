@@ -10,6 +10,7 @@ mongoose.connect(
 
 const journalSeed = [
   {
+    email:"email",
     title: "test",
     synopsis:
       "this",
