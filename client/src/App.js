@@ -7,6 +7,7 @@ import Callback from "./pages/Callback";
 import Auth from "./Auth/Auth";
 import Nav from "./components/Nav";
 import Profile from "./pages/profile.js"
+import Resources from "./pages/resources"
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -37,6 +38,7 @@ class App extends Component {
             }}
           />
           <Route path='/profile' exact name='profile' component={Profile} />
+          <Route path='/resources' exact name='resources' component={Resources} />
         </div>
       </>
     );

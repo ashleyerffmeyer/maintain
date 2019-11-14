@@ -1,0 +1,21 @@
+.subheading {
+    font-size: 1.5rem;
+}
+​
+.resource {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+​
+.resource strong {
+    color: #000 !important;
+}
+​
+.resource a {
+    color: #666;
+}
+​
+.resource a:hover {
+    color: #000 !important;
+}
