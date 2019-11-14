@@ -8,18 +8,18 @@ import menu from "../../assets/menu.png";
 
 import "./style.css";
 
-function Nav (props) {
+function Nav(props) {
     return (
         <div>
             <div className="navbars">
-               
-                    <img className="MaintainTransLogo" src={logo} alt="Maintain Logo" />
-                
+
+                <img className="MaintainTransLogo" src={logo} alt="Maintain Logo" />
+
 
                 <div className="navigation">
                     <a className="active home" href="/"><img className="homeicon home" src={house} alt="maps" />Home</a>
-                     <a className="map" href="/map"> <img className="mapicon map" src={map} alt="resources" />Map</a>
-                    <a className="menu" href="/profile"> <img className="menuicon menu" src={menu} alt="menu" />Learn More</a>
+                    <a className="map" href="/map"> <img className="mapicon map" src={map} alt="resources" />Map</a>
+                    <a className="menu" href="/resources"> <img className="menuicon menu" src={menu} alt="menu" />Learn More</a>
                     <LoginButton auth={props.auth} />
                     <ProfileButton auth={props.auth} />
                 </div>
