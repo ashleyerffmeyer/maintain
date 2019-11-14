@@ -110,7 +110,8 @@
     }
     a:hover {
         background-color: #ffffff;
-        opacity: 0.55;
+        opacity: 0.85;
+        
     }
     a.home {
         font-size: 24px;

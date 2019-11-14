@@ -8,6 +8,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Mags from '../assets/mags.png';
 import Ash from '../assets/AshleyErffmeyer.jpeg';
+import Maha from '../assets/maha.JPG';
 import Jenny from '../assets/Jenny_photo.png'
 import slideone from '../assets/care-caregiver-deal-45842.jpg';
 import slidetwo from '../assets/woman-holding-flower.jpg';
@@ -22,16 +23,16 @@ function Home() {
     return (
         <div>
             <div className="pimg1" style={{ backgroundImage: `url(${friends})` }}>
-                
-                        <div className="hero">
 
-                            <h1 className="mainheader">Maintain</h1>
-                            <h3 className="caption1" id="cap">...your safety</h3>
-                            <h3 className="caption2" id="cap">...your strategy</h3>
-                            <h3 className="caption3" id="cap">...your health</h3>
-                        </div>
-                    
-                
+                <div className="hero">
+
+                    <h1 className="mainheader">Maintain</h1>
+                    <h3 className="caption1" id="cap">...your safety</h3>
+                    <h3 className="caption2" id="cap">...your strategy</h3>
+                    <h3 className="caption3" id="cap">...your health</h3>
+                </div>
+
+
             </div>
 
             {/* <Header /> */}
@@ -39,11 +40,17 @@ function Home() {
                 <div className="missionstatement">
                     {/* This is needed for the parralax */}
                     <h2>Our Mission</h2>
-                    <p>Empowering survivors to maintain and take control of their life.<br></br>
-                        >We value safety and privacy for each user.
-                        >We allow users to document daily life within our secure web journals.
-                        >We provide resources for help, assistance, and nearby places.
-                        >No domestic violence victim should feel stuck in a poor quality of life.
+                    <p>Maintain is all about empowering survivors to maintain and take control of their life. We’re meant to be an all in one resource for individuals to:
+
+                        <ul>
+
+                            <li>Document daily life within our secure web journals. </li>
+                            <li>Provide resources for help, assistance, and nearby places.</li>
+                        </ul>
+
+                        We value the safety and privacy of all our clients.
+                        
+                        No domestic violence victim should feel stuck in a poor quality of life.
                         </p>
                 </div>
                 <div className="pimg2" style={{ backgroundImage: `url(${babysitter})` }}>
@@ -89,6 +96,7 @@ function Home() {
                         </Carousel.Item>
                         <Carousel.Item>
                             <img
+                                
                                 className="d-block w-100"
                                 src={slidethree}
                                 height={600}
@@ -98,7 +106,7 @@ function Home() {
 
                             <Carousel.Caption>
                                 <h3>National Domestic Hotline</h3>
-                                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                                <p>National Domestic Violence Hotline can help victims, survivors of domestic violence. Call 1-800-799-7233. Chat w/ an advocate on their website.</p>
                             </Carousel.Caption>
                         </Carousel.Item>
                     </Carousel>
@@ -126,10 +134,9 @@ function Home() {
                                 <Card.Body>
                                     <Card.Title>Magdalene James</Card.Title>
                                     <Card.Text>
-                                        Some quick example text to build on the card title and make up the bulk of
-                                        the card's content.
+                                        Full-Stack Web developer with focus on Front-End UI/UX and mobile responsiveness.
                             </Card.Text>
-                            <Card.Link href="#">Card Link</Card.Link>
+                                    <Card.Link href="https://maggyjay.github.io/Bootstrap-Portfolio/">Portfolio</Card.Link>
                                 </Card.Body>
                             </Card>
                             <br></br>
@@ -138,40 +145,37 @@ function Home() {
                                 <Card.Body>
                                     <Card.Title>Ashley Erffmeyer</Card.Title>
                                     <Card.Text>
-                                        Some quick example text to build on the card title and make up the bulk of
-                                        the card's content.
+                                        Full Stack web developer with a focus on back end tech & MongoDB.
                             </Card.Text>
-                            <Card.Link href="#">Card Link</Card.Link>
+                                    <Card.Link href="https://ashleyerffmeyer.github.io/">Portfolio</Card.Link>
                                 </Card.Body>
                             </Card>
                             <br></br>
                             <Card style={{ width: '18rem' }}>
                                 <Card.Img variant="top" src={Jenny} />
                                 <Card.Body>
-                                    <Card.Title>Card Title</Card.Title>
+                                    <Card.Title>Jenny Vossman</Card.Title>
                                     <Card.Text>
-                                        Some quick example text to build on the card title and make up the bulk of
-                                        the card's content.
+                                        Full stack developer with a focus on Google Maps API integration and resources page UI.
                             </Card.Text>
-                            <Card.Link href="#">Card Link</Card.Link>
+                                    <Card.Link href="https://jenvoss17.github.io/jennifervossmanportfolio/">Portfolio</Card.Link>
                                 </Card.Body>
                             </Card>
                         </div>
                         <br></br>
                         <div className="row">
                             <Card style={{ width: '18rem' }}>
-                                <Card.Img variant="top" src={Mags} />
+                                <Card.Img variant="top" src={Maha} />
                                 <Card.Body>
-                                    <Card.Title>Card Title</Card.Title>
+                                    <Card.Title>Maha Malampati</Card.Title>
                                     <Card.Text>
-                                        Some quick example text to build on the card title and make up the bulk of
-                                        the card's content.
+                                        Full Stack web developer focused on User Authentication.
                             </Card.Text>
-                            <Card.Link href="#">Card Link</Card.Link>
+                                    <Card.Link href="https://mahamalampati.github.io/Basic-Portfolio/">Portfolio</Card.Link>
                                 </Card.Body>
                             </Card>
                             <br></br>
-                            <Card style={{ width: '18rem' }}>
+                            {/* <Card style={{ width: '18rem' }}>
                                 <Card.Img variant="top" src={Mags} />
                                 <Card.Body>
                                     <Card.Title>Card Title</Card.Title>
@@ -181,7 +185,7 @@ function Home() {
                             </Card.Text>
                             <Card.Link href="#">Card Link</Card.Link>
                                 </Card.Body>
-                            </Card>
+                            </Card> */}
                         </div>
                     </div>
 
