@@ -2,12 +2,6 @@
     font-size: 1.5rem;
 }
 ​
-.resource {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 20px;
-}
-​
 .resource strong {
     color: #000 !important;
 }

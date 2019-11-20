@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Carousel from 'react-bootstrap/Carousel';
 import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Mags from '../assets/mags.png';
 import Ash from '../assets/AshleyErffmeyer.jpeg';
@@ -36,11 +37,11 @@ function Home() {
             </div>
 
             {/* <Header /> */}
-            <div className="mainlayout">
+            <div className="container">
                 <div className="missionstatement">
                     {/* This is needed for the parralax */}
                     <h2>Our Mission</h2>
-                    <p>Maintain is all about empowering survivors to maintain and take control of their life. We’re meant to be an all in one resource for individuals to:
+                    <p>Maintain is all about empowering survivors to maintain and take control of their life. We’re meant to be an all in one resource for individuals to:
 
                         <ul>
 
@@ -49,7 +50,7 @@ function Home() {
                         </ul>
 
                         We value the safety and privacy of all our clients.
-                        
+
                         No domestic violence victim should feel stuck in a poor quality of life.
                         </p>
                 </div>
@@ -63,7 +64,7 @@ function Home() {
 
                 </div>
 
-                <div className="slideshow">
+                <div className="slideshow pt-5">
                     {/* This is needed for the parralax  */}
                     <h2>Information</h2>
                     <Carousel>
@@ -96,7 +97,7 @@ function Home() {
                         </Carousel.Item>
                         <Carousel.Item>
                             <img
-                                
+
                                 className="d-block w-100"
                                 src={slidethree}
                                 height={600}
@@ -122,70 +123,61 @@ function Home() {
                     </div>
 
                 </div>
-                <div className="AboutUs">
+                <div className="AboutUs pt-5">
                     <h2>Meet Us</h2>
                     <div className="container-fluid">
                         <div className="row">
+                            <Col className="p-1 mb-3" sm="12" md="4" lg="3" style={{ background: 'unset', border: 'none' }}>
+                                <Card>
+                                    <Card.Img variant="top" src={Mags} />
+                                    <Card.Body>
+                                        <Card.Title>Magdalene James</Card.Title>
+                                        <Card.Text>
+                                            Full-Stack Web developer with focus on Front-End UI/UX and mobile responsiveness.
+                                        </Card.Text>
+                                        <Card.Link href="https://maggyjay.github.io/Bootstrap-Portfolio/">Portfolio</Card.Link>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
 
+                            <Col className="p-1 mb-3" sm="12" md="4" lg="3" style={{ background: 'unset', border: 'none' }}>
+                                <Card>
+                                    <Card.Img variant="top" src={Ash} />
+                                    <Card.Body>
+                                        <Card.Title>Ashley Erffmeyer</Card.Title>
+                                        <Card.Text>
+                                            Full Stack web developer with a focus on back end tech & MongoDB.
+                                        </Card.Text>
+                                        <Card.Link href="https://ashleyerffmeyer.github.io/">Portfolio</Card.Link>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
 
+                            <Col className="p-1 mb-3" sm="12" md="4" lg="3" style={{ background: 'unset', border: 'none' }}>
+                                <Card>
+                                    <Card.Img variant="top" src={Jenny} />
+                                    <Card.Body>
+                                        <Card.Title>Jenny Vossman</Card.Title>
+                                        <Card.Text>
+                                            Full stack developer with a focus on Google Maps API integration and resources page UI.
+                                        </Card.Text>
+                                        <Card.Link href="https://jenvoss17.github.io/jennifervossmanportfolio/">Portfolio</Card.Link>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
 
-                            <Card style={{ width: '18rem' }}>
-                                <Card.Img variant="top" src={Mags} />
-                                <Card.Body>
-                                    <Card.Title>Magdalene James</Card.Title>
-                                    <Card.Text>
-                                        Full-Stack Web developer with focus on Front-End UI/UX and mobile responsiveness.
-                            </Card.Text>
-                                    <Card.Link href="https://maggyjay.github.io/Bootstrap-Portfolio/">Portfolio</Card.Link>
-                                </Card.Body>
-                            </Card>
-                            <br></br>
-                            <Card style={{ width: '18rem' }}>
-                                <Card.Img variant="top" src={Ash} />
-                                <Card.Body>
-                                    <Card.Title>Ashley Erffmeyer</Card.Title>
-                                    <Card.Text>
-                                        Full Stack web developer with a focus on back end tech & MongoDB.
-                            </Card.Text>
-                                    <Card.Link href="https://ashleyerffmeyer.github.io/">Portfolio</Card.Link>
-                                </Card.Body>
-                            </Card>
-                            <br></br>
-                            <Card style={{ width: '18rem' }}>
-                                <Card.Img variant="top" src={Jenny} />
-                                <Card.Body>
-                                    <Card.Title>Jenny Vossman</Card.Title>
-                                    <Card.Text>
-                                        Full stack developer with a focus on Google Maps API integration and resources page UI.
-                            </Card.Text>
-                                    <Card.Link href="https://jenvoss17.github.io/jennifervossmanportfolio/">Portfolio</Card.Link>
-                                </Card.Body>
-                            </Card>
-                        </div>
-                        <br></br>
-                        <div className="row">
-                            <Card style={{ width: '18rem' }}>
-                                <Card.Img variant="top" src={Maha} />
-                                <Card.Body>
-                                    <Card.Title>Maha Malampati</Card.Title>
-                                    <Card.Text>
-                                        Full Stack web developer focused on User Authentication.
-                            </Card.Text>
-                                    <Card.Link href="https://mahamalampati.github.io/Basic-Portfolio/">Portfolio</Card.Link>
-                                </Card.Body>
-                            </Card>
-                            <br></br>
-                            {/* <Card style={{ width: '18rem' }}>
-                                <Card.Img variant="top" src={Mags} />
-                                <Card.Body>
-                                    <Card.Title>Card Title</Card.Title>
-                                    <Card.Text>
-                                        Some quick example text to build on the card title and make up the bulk of
-                                        the card's content.
-                            </Card.Text>
-                            <Card.Link href="#">Card Link</Card.Link>
-                                </Card.Body>
-                            </Card> */}
+                            <Col className="p-1 mb-3" sm="12" md="4" lg="3" style={{ background: 'unset', border: 'none' }}>
+                                <Card>
+                                    <Card.Img variant="top" src={Maha} />
+                                    <Card.Body>
+                                        <Card.Title>Maha Malampati</Card.Title>
+                                        <Card.Text>
+                                            Full Stack web developer focused on User Authentication.
+                                        </Card.Text>
+                                        <Card.Link href="https://mahamalampati.github.io/Basic-Portfolio/">Portfolio</Card.Link>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
                         </div>
                     </div>
 
