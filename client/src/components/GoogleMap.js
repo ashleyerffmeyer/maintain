@@ -43,6 +43,7 @@ class GoogleMap extends Component {
         };
         this.getPlaces = this.getPlaces.bind(this);
         this.getMarkers = this.getMarkers.bind(this);
+        this.createMarker = this.createMarker.bind(this);
     }
 
     componentDidMount() {
@@ -74,7 +75,7 @@ class GoogleMap extends Component {
                 map.setCenter(coords);
 
                 self.state.locations.forEach(location => {
-                    if (location.search_term) self.getMarkers(location);
+                    if (location.search_term) self.getMarkers(location, coords);
                 })
             }, function () {
                 self.handleLocationError(true);
@@ -86,11 +87,6 @@ class GoogleMap extends Component {
                 if (location.search_term) this.getMarkers(location);
             })
         }
-
-        new google.maps.places.Autocomplete(document.getElementById('places_search'), {
-            types: ['establishment'],
-            componentRestrictions: { country: 'us' },
-        });
 
         this.setState({ is_loading: false })
     }
@@ -105,9 +101,9 @@ class GoogleMap extends Component {
         console.log('locationSearch()')
     }
 
-    getMarkers(location) {
+    getMarkers(location, coords) {
         var request = {
-            location: this.state.coords,
+            location: coords || this.state.coords,
             radius: '2000',
             type: location.search_term
         }
@@ -124,6 +120,7 @@ class GoogleMap extends Component {
     }
 
     createMarker(result, color = 'green', open_on_load = false) {
+        let self = this;
         if (result.geometry) {
             var icon = `http://maps.google.com/mapfiles/ms/icons/${color}-dot.png`;
             let marker = new google.maps.Marker({
@@ -134,7 +131,7 @@ class GoogleMap extends Component {
             });
             marker.addListener('click', function () {
                 new google.maps.InfoWindow({
-                    content: (result.plus_code) ? result.name + '<br /> <a href="https://google.com/maps/dir//' + result.geometry.location.lat() + ',' + result.geometry.location.lng() + '">Get Directions</a>' : result.name
+                    content: (result.plus_code) ? result.name + '<br /> <a href="https://google.com/maps/dir/' + self.state.coords.lat + ',' + self.state.coords.lng + '/' + result.geometry.location.lat() + ',' + result.geometry.location.lng() + '">Get Directions</a>' : result.name
                 }).open(map, marker);
             });
             if (open_on_load) {
